@@ -35,7 +35,6 @@ public class createNewProfileFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Create New Profile");
 
         jLabel1.setText("Username:");

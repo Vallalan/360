@@ -38,7 +38,6 @@ public class leaderBoardFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Top Scores");
 
         jLabel1.setText("Player:");

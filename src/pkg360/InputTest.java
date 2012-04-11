@@ -1,17 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg360;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BEncoderStream;
 import java.io.*;
 import java.util.*;
-/**
- *
- * @author cgmorri1
+/*
+ * @author Caleb Morris
  */
-public class Tmp {
-    public static void main(String[] args) {
+public class InputTest {
+    public void main() {
         Vector<String> v = new Vector<String>();
         String fileName = "test_file.txt";
         try {
@@ -28,27 +22,31 @@ public class Tmp {
         catch(Exception e){
             System.out.println("Exceptione is ="+e.getMessage());
         }
-        int start = -1,end = -1;
-        for( int i = 0; i < v.size(); ++i ) {
+        int start = -1,end;
+        int t = v.size();
+        for( int i = 0; i < t; ++i ) {
             String tmp = v.elementAt(i);
             if( tmp.indexOf("/*") > -1 && start == -1 ) {
                 start = i;
                 System.out.println("\t/* found.");
             }
             else if( tmp.indexOf("*/") > -1 && start != -1 ) {
+                end = i;
                 if( tmp.endsWith("*/") ) {
                     v.set(i, v.elementAt(i).substring(0, v.elementAt(i).length()-2));
                     v.subList(start, end).clear();
+                    t -= end-start-1;
                 }
                 else {
                     v.subList(start, end+1).clear();
+                    t -= end-start;
                 }
-                end = i;
                 System.out.println("\t*/ found.");
                 v.subList(start, end).clear();
                 start = -1; end = -1;
             }
             System.out.println(tmp);
+            System.out.println("\t"+v.size());
         }
         System.out.println("=========================");
         for( int i = 0; i < v.size(); ++i ) {

@@ -1,7 +1,7 @@
 /* Data file*/
 
 /* puzzle size: The integer on the first line in this file (excluding 
-comments identfied with /* ...*/)
+comments identfied with )
 represents the square dimension of the puzzle board. Puzzle is numbered 
 from 1 to nxn starting from 
 top left corner and ending at the bottom right corner (left to right and 

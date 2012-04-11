@@ -1,0 +1,44 @@
+/* Data file*/
+
+/* puzzle size: The integer on the first line in this file (excluding 
+comments identfied with /* ...*/)
+represents the square dimension of the puzzle board. Puzzle is numbered 
+from 1 to nxn starting from 
+top left corner and ending at the bottom right corner (left to right and 
+top to bottom 
+direction) of the square - a sample 3x3 crossword puzzle is numbered as
+1 2 3
+4 5 6
+7 8 9
+*/
+
+6
+
+/*Questions
+[question] [starting square] [length of word] [direction: ACROSS or 
+DOWN] [end of line: #]*/
+
+"Common greeting in English language" 1 5 ACROSS #
+"______ and seek" 15 4 ACROSS # 
+"Noise that cows make" 19 3 ACROSS # 
+"______ of wolves" 27 4 ACROSS # 
+"Opposite of young" 5 3 DOWN # 
+"Four letter word for the phrase 'long for'" 15 4 DOWN #
+"______ the lawn" 19 3 DOWN # 
+
+/* answers to the crossword puzzle
+[answer] [starting square][direction [direction: ACROSS or DOWN] [end of 
+line: #]*/
+
+hello 1 5 a #
+hide 15 4 a #
+moo 19 3 a #
+pack 27 4 a #
+old 5 3 d #
+hope 15 4 d #
+mow 19 3 d #
+
+
+/* end of file: ## */
+
+##

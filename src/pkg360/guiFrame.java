@@ -16,6 +16,19 @@ public class guiFrame extends javax.swing.JFrame {
      */
     public guiFrame() {
         initComponents();
+        /*
+        //My collecting all the board elements into an array
+        my_jlabelHolder = {
+            {
+                {jLabel2, jLabel1}, {jLabel3, jLabel4}, {jLabel5, jLabel6}, 
+                {jLabel7, jLabel8}, {jLabel9, jLabel10}, {jLabel11, jLabel12}, 
+                {jLabel13, jLabel14}, {jLabel15, jLabel16}, {jLabel17, jLabel18},
+                {jLabel19, jLabel20}, {jLabel21, jLabel22}, {jLabel23, jLabel24},
+                {jLabel25, jLabel26}, {jLabel27, jLabel28}, {jLabel29, jLabel30}
+            },
+            {{}}
+        };
+        */
     }
 
     /**
@@ -29,8 +42,8 @@ public class guiFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -718,18 +731,16 @@ public class guiFrame extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridLayout(15, 15, 2, 2));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setMinimumSize(new java.awt.Dimension(10, 10));
-        jPanel2.setPreferredSize(new java.awt.Dimension(10, 10));
         jPanel2.setLayout(new java.awt.BorderLayout());
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("A");
-        jPanel2.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         jLabel2.setText("1");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jPanel2.add(jLabel2, java.awt.BorderLayout.NORTH);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("A");
+        jPanel2.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         jPanel1.add(jPanel2);
 
@@ -3916,7 +3927,7 @@ public class guiFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel227, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3971,7 +3982,7 @@ public class guiFrame extends javax.swing.JFrame {
                 new guiFrame().setVisible(true);
             }
         });
-    }
+    }   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -4658,4 +4669,5 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel98;
     private javax.swing.JPanel jPanel99;
     // End of variables declaration//GEN-END:variables
+    private javax.swing.JLabel[][][] my_jlabelHolder;
 }

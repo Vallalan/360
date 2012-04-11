@@ -8,5 +8,10 @@ public class Main {
     public static void main(String[] args) {
         guiFrame fr = new guiFrame();
         fr.setVisible(true);
+        
+        //
+        wordSubmitFrame ws = new wordSubmitFrame();
+        ws.setVisible(true);
+        //
     }
 }

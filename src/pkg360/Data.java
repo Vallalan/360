@@ -5,6 +5,7 @@ package pkg360;
  */
 public class Data {
    private static Data instance = null;
+   public String uName;
    protected Data() {
       // Exists only to defeat instantiation.
    }

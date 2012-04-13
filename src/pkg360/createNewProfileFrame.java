@@ -4,6 +4,15 @@
  */
 package pkg360;
 
+import java.util.Vector;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.lang.reflect.Type;
+import java.util.Scanner;
 /**
  *
  * @author cdbitesky
@@ -29,11 +38,11 @@ public class createNewProfileFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        textUName = new javax.swing.JTextField();
+        textPassword = new javax.swing.JTextField();
+        textPassConf = new javax.swing.JTextField();
+        buttonCreate = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
 
         setTitle("Create New Profile");
 
@@ -43,15 +52,19 @@ public class createNewProfileFrame extends javax.swing.JFrame {
 
         jLabel3.setText("Confirm Password");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        buttonCreate.setText("Create");
+        buttonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                buttonCreateActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Create");
-
-        jButton2.setText("Cancel");
+        buttonCancel.setText("Cancel");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,15 +79,15 @@ public class createNewProfileFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField2)
+                        .addComponent(textPassword)
                         .addGap(19, 19, 19)
-                        .addComponent(jButton1))
+                        .addComponent(buttonCreate))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField3)
+                        .addComponent(textPassConf)
                         .addGap(19, 19, 19)
-                        .addComponent(jButton2))
+                        .addComponent(buttonCancel))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textUName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 84, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -83,27 +96,83 @@ public class createNewProfileFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textUName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(textPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCreate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonCancel)
+                    .addComponent(textPassConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void buttonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateActionPerformed
+        Data d = Data.getInstance();
+        d.uName = textUName.getText();
+        String line = "";
+        Gson gson = new Gson();
+        
+        //import userbase
+        try {
+            BufferedReader reader = 
+                new BufferedReader( 
+                    new FileReader("users.txt") );
+            line= reader.readLine();
+        }
+        catch( Exception e ) {
+            System.out.println("Exceptione is ="+e.getMessage());
+        }
+        // TODO fix json parser input errors
+        // TODO add check if file exists
+        Type collectionType = new TypeToken<Vector<Integer>>(){}.getType();
+        Vector<UserPW> upwList = gson.fromJson(line, collectionType);
+        //Vector<UserPW> upwList = new Vector<UserPW>();
+        if( upwList.size() <= 0 || upwList.elementAt(0).uName.compareTo("") != 0 )
+            upwList.add(new UserPW("",""));
+        
+        for (int i = 0; i < upwList.size(); i++) {
+            System.out.println(upwList.elementAt(i).uName + upwList.elementAt(i).uPW);
+        }
+        
+        for (int i = 0; i < upwList.size(); i++) {
+            if( upwList.elementAt(i).uName.compareTo(d.uName) == 0 ) {
+                // Already exists
+            }
+        }
+        if( textPassConf.getText().compareTo(textPassword.getText()) == 0 ) {
+            upwList.add(new UserPW(d.uName, textPassword.getText()));
+            
+            try {
+                PrintWriter out = new PrintWriter(
+                    new FileWriter("users.txt"));
+                
+                out.print(gson.toJson(upwList));
+                out.close();
+                
+                this.setVisible(false);
+            }
+            catch( Exception e ) {
+                System.out.println("Exceptione is ="+e.getMessage());
+            }
+        }
+        else {
+            // Conf != pw
+        }
+    }//GEN-LAST:event_buttonCreateActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        loginFrame lf = new loginFrame();
+        lf.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,13 +216,13 @@ public class createNewProfileFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton buttonCancel;
+    private javax.swing.JButton buttonCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField textPassConf;
+    private javax.swing.JTextField textPassword;
+    private javax.swing.JTextField textUName;
     // End of variables declaration//GEN-END:variables
 }

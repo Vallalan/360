@@ -1,5 +1,8 @@
 package pkg360;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -16,19 +19,172 @@ public class guiFrame extends javax.swing.JFrame {
      */
     public guiFrame() {
         initComponents();
-        /*
+        
         //My collecting all the board elements into an array
-        my_jlabelHolder = {
+        JLabel[][][] my_jlabelHolder = {
             {
-                {jLabel2, jLabel1}, {jLabel3, jLabel4}, {jLabel5, jLabel6}, 
+                {jLabel1, jLabel2}, {jLabel3, jLabel4}, {jLabel5, jLabel6}, 
                 {jLabel7, jLabel8}, {jLabel9, jLabel10}, {jLabel11, jLabel12}, 
                 {jLabel13, jLabel14}, {jLabel15, jLabel16}, {jLabel17, jLabel18},
                 {jLabel19, jLabel20}, {jLabel21, jLabel22}, {jLabel23, jLabel24},
                 {jLabel25, jLabel26}, {jLabel27, jLabel28}, {jLabel29, jLabel30}
             },
-            {{}}
+            {
+                {jLabel32, jLabel31}, {jLabel33, jLabel34}, {jLabel35, jLabel36}, 
+                {jLabel37, jLabel38}, {jLabel39, jLabel40}, {jLabel41, jLabel42}, 
+                {jLabel43, jLabel44}, {jLabel45, jLabel46}, {jLabel47, jLabel48},
+                {jLabel49, jLabel50}, {jLabel51, jLabel52}, {jLabel53, jLabel54},
+                {jLabel55, jLabel56}, {jLabel57, jLabel58}, {jLabel59, jLabel60}
+            },
+            {
+                {jLabel61, jLabel62}, {jLabel63, jLabel64}, {jLabel65, jLabel66}, 
+                {jLabel67, jLabel68}, {jLabel69, jLabel70}, {jLabel71, jLabel72}, 
+                {jLabel73, jLabel74}, {jLabel75, jLabel76}, {jLabel77, jLabel78},
+                {jLabel79, jLabel80}, {jLabel81, jLabel82}, {jLabel83, jLabel84},
+                {jLabel85, jLabel86}, {jLabel87, jLabel88}, {jLabel89, jLabel90}
+            },
+            {
+                {jLabel91, jLabel92}, {jLabel93, jLabel94}, {jLabel95, jLabel96}, 
+                {jLabel97, jLabel98}, {jLabel99, jLabel100}, {jLabel101, jLabel102}, 
+                {jLabel103, jLabel104}, {jLabel105, jLabel106}, {jLabel107, jLabel108},
+                {jLabel109, jLabel110}, {jLabel111, jLabel112}, {jLabel113, jLabel114},
+                {jLabel115, jLabel116}, {jLabel117, jLabel118}, {jLabel119, jLabel120}
+            },
+            {
+                {jLabel121, jLabel122}, {jLabel123, jLabel124}, {jLabel125, jLabel126}, 
+                {jLabel127, jLabel128}, {jLabel129, jLabel130}, {jLabel131, jLabel132}, 
+                {jLabel133, jLabel134}, {jLabel135, jLabel136}, {jLabel137, jLabel138},
+                {jLabel139, jLabel140}, {jLabel141, jLabel142}, {jLabel143, jLabel144},
+                {jLabel145, jLabel146}, {jLabel147, jLabel148}, {jLabel149, jLabel150}
+            },
+            {
+                {jLabel151, jLabel152}, {jLabel153, jLabel154}, {jLabel155, jLabel156}, 
+                {jLabel157, jLabel158}, {jLabel159, jLabel160}, {jLabel161, jLabel162}, 
+                {jLabel163, jLabel164}, {jLabel165, jLabel166}, {jLabel167, jLabel168},
+                {jLabel169, jLabel170}, {jLabel171, jLabel172}, {jLabel173, jLabel174},
+                {jLabel175, jLabel176}, {jLabel177, jLabel178}, {jLabel179, jLabel180}
+            },
+            {
+                {jLabel181, jLabel182}, {jLabel183, jLabel184}, {jLabel185, jLabel186}, 
+                {jLabel187, jLabel188}, {jLabel379, jLabel380}, {jLabel189, jLabel190},
+                {jLabel191, jLabel192}, {jLabel193, jLabel194}, {jLabel383, jLabel384},
+                {jLabel195, jLabel196}, {jLabel385, jLabel386}, {jLabel197, jLabel198},
+                {jLabel387, jLabel388}, {jLabel199, jLabel200}, {jLabel201, jLabel202}
+            },
+            {
+                {jLabel203, jLabel204}, {jLabel375, jLabel376}, {jLabel205, jLabel206},
+                {jLabel377, jLabel378}, {jLabel207, jLabel208}, {jLabel381, jLabel382},
+                {jLabel209, jLabel210}, {jLabel211, jLabel212}, {jLabel213, jLabel214},
+                {jLabel215, jLabel216}, {jLabel217, jLabel218}, {jLabel219, jLabel220},
+                {jLabel221, jLabel222}, {jLabel389, jLabel390}, {jLabel223, jLabel224}
+            },
+            {
+                {jLabel225, jLabel226}, {jLabel399, jLabel400}, {jLabel227, jLabel228},
+                {jLabel397, jLabel398}, {jLabel229, jLabel230}, {jLabel231, jLabel232},
+                {jLabel395, jLabel396}, {jLabel233, jLabel234}, {jLabel393, jLabel394},
+                {jLabel235, jLabel236}, {jLabel237, jLabel238}, {jLabel239, jLabel240},
+                {jLabel391, jLabel392}, {jLabel241, jLabel242}, {jLabel243, jLabel244}
+            },
+            {
+                {jLabel245, jLabel246}, {jLabel247, jLabel248}, {jLabel249, jLabel250},
+                {jLabel251, jLabel252}, {jLabel253, jLabel254}, {jLabel401, jLabel402},
+                {jLabel255, jLabel256}, {jLabel403, jLabel404}, {jLabel257, jLabel258},
+                {jLabel405, jLabel406}, {jLabel259, jLabel260}, {jLabel407, jLabel408},
+                {jLabel261, jLabel262}, {jLabel263, jLabel264}, {jLabel265, jLabel266}
+            },
+            {
+                {jLabel425, jLabel426}, {jLabel267, jLabel268}, {jLabel269, jLabel270},
+                {jLabel419, jLabel420}, {jLabel271, jLabel272}, {jLabel417, jLabel418},
+                {jLabel273, jLabel274}, {jLabel415, jLabel416}, {jLabel275, jLabel276},
+                {jLabel277, jLabel278}, {jLabel279, jLabel280}, {jLabel409, jLabel410},
+                {jLabel281, jLabel282}, {jLabel283, jLabel284}, {jLabel285, jLabel286}
+            },
+            {
+                {jLabel427, jLabel428}, {jLabel287, jLabel288}, {jLabel289, jLabel290},
+                {jLabel421, jLabel422}, {jLabel291, jLabel292}, {jLabel293, jLabel294},
+                {jLabel295, jLabel296}, {jLabel297, jLabel298}, {jLabel299, jLabel300},
+                {jLabel301, jLabel302}, {jLabel413, jLabel414}, {jLabel303, jLabel304},
+                {jLabel411, jLabel412}, {jLabel305, jLabel306}, {jLabel307, jLabel308}
+            },
+            {
+                {jLabel309, jLabel310}, {jLabel311, jLabel312}, {jLabel313, jLabel314},
+                {jLabel423, jLabel424}, {jLabel315, jLabel316}, {jLabel317, jLabel318},
+                {jLabel429, jLabel430}, {jLabel319, jLabel320}, {jLabel321, jLabel322},
+                {jLabel431, jLabel432}, {jLabel323, jLabel324}, {jLabel325, jLabel326},
+                {jLabel327, jLabel328}, {jLabel329, jLabel330}, {jLabel433, jLabel434}
+            },
+            {
+                {jLabel331, jLabel332}, {jLabel333, jLabel334}, {jLabel447, jLabel448},
+                {jLabel335, jLabel336}, {jLabel337, jLabel338}, {jLabel339, jLabel340},
+                {jLabel443, jLabel444}, {jLabel341, jLabel342}, {jLabel343, jLabel344},
+                {jLabel345, jLabel346}, {jLabel437, jLabel438}, {jLabel347, jLabel348},
+                {jLabel349, jLabel350}, {jLabel351, jLabel352}, {jLabel435, jLabel436} 
+            },
+            {
+                {jLabel353, jLabel354}, {jLabel449, jLabel450}, {jLabel355, jLabel356},
+                {jLabel445, jLabel446}, {jLabel357, jLabel358}, {jLabel359, jLabel360},
+                {jLabel361, jLabel362}, {jLabel363, jLabel364}, {jLabel365, jLabel366},
+                {jLabel367, jLabel368}, {jLabel441, jLabel442}, {jLabel369, jLabel370},
+                {jLabel439, jLabel440}, {jLabel371, jLabel372}, {jLabel373, jLabel374}
+            }
         };
-        */
+        JPanel[][] panelHolder = { 
+            {jPanel2, jPanel3, jPanel4, jPanel5, jPanel6, jPanel7, 
+            jPanel8, jPanel9, jPanel10, jPanel11, jPanel12, jPanel13, 
+            jPanel14, jPanel15, jPanel16},
+            {jPanel17, jPanel18, jPanel19, 
+            jPanel20, jPanel21, jPanel22, jPanel23, jPanel24, jPanel25, 
+            jPanel26, jPanel27, jPanel28, jPanel29, jPanel30, jPanel31}, 
+            {jPanel32, jPanel33, jPanel34, jPanel35, jPanel36, jPanel37, 
+            jPanel38, jPanel39, jPanel40, jPanel41, jPanel42, jPanel43, 
+            jPanel44, jPanel45, jPanel46}, 
+            {jPanel47, jPanel48, jPanel49, 
+            jPanel50, jPanel51, jPanel52, jPanel53, jPanel54, jPanel55, 
+            jPanel56, jPanel57, jPanel58, jPanel59, jPanel60, jPanel61}, 
+            {jPanel62, jPanel63, jPanel64, jPanel65, jPanel66, jPanel67, 
+            jPanel68, jPanel69, jPanel70, jPanel71, jPanel72, jPanel73, 
+            jPanel74, jPanel75, jPanel76}, 
+            {jPanel77, jPanel78, jPanel79, 
+            jPanel80, jPanel81, jPanel82, jPanel83, jPanel84, jPanel85, 
+            jPanel86, jPanel87, jPanel88, jPanel89, jPanel90, jPanel91}, 
+            {jPanel92, jPanel93, jPanel94, jPanel95, jPanel96, jPanel97, 
+            jPanel98, jPanel99, jPanel100, jPanel101, jPanel102, jPanel103, 
+            jPanel104, jPanel105, jPanel106}, 
+            {jPanel107, jPanel108, 
+            jPanel109, jPanel110, jPanel111, jPanel112, jPanel113, 
+            jPanel114, jPanel115, jPanel116, jPanel117, jPanel118, jPanel119, 
+            jPanel120, jPanel121}, 
+            {jPanel122, jPanel123, jPanel124, jPanel125, 
+            jPanel126, jPanel127, jPanel128, jPanel129, jPanel130, jPanel131, 
+            jPanel132, jPanel133, jPanel134, jPanel135, jPanel136}, 
+            {jPanel137, 
+            jPanel138, jPanel139, jPanel140, jPanel141, jPanel142, jPanel143, 
+            jPanel144, jPanel145, jPanel146, jPanel147, jPanel148, jPanel149, 
+            jPanel150, jPanel151}, 
+            {jPanel152, jPanel153, jPanel154, jPanel155, 
+            jPanel156, jPanel157, jPanel158, jPanel159, jPanel160, jPanel161, 
+            jPanel162, jPanel163, jPanel164, jPanel165, jPanel166}, 
+            {jPanel167, 
+            jPanel168, jPanel169, jPanel170, jPanel171, jPanel172, jPanel173, 
+            jPanel174, jPanel175, jPanel176, jPanel177, jPanel178, jPanel179, 
+            jPanel180, jPanel181}, 
+            {jPanel182, jPanel183, jPanel184, jPanel185, 
+            jPanel186, jPanel187, jPanel188, jPanel189, jPanel190, jPanel191, 
+            jPanel192, jPanel193, jPanel194, jPanel195, jPanel196}, 
+            {jPanel197, 
+            jPanel198, jPanel199, jPanel200, jPanel201, jPanel202, jPanel203, 
+            jPanel204, jPanel205, jPanel206, jPanel207, jPanel208, jPanel209, 
+            jPanel210, jPanel211}, 
+            {jPanel212, jPanel213, jPanel214, jPanel215, 
+            jPanel216, jPanel217, jPanel218, jPanel219, jPanel220, jPanel221, 
+            jPanel222, jPanel223, jPanel224, jPanel225, jPanel226}
+        };
+        Data d = Data.getInstance();
+        Board b_ = new Board(my_jlabelHolder);
+        b_.init(panelHolder);
+        d.board_= b_;
+        //d.board_.init();
+        //*/
     }
 
     /**
@@ -724,21 +880,24 @@ public class guiFrame extends javax.swing.JFrame {
         jLabel453 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jLabel454 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList();
+        jLabel455 = new javax.swing.JLabel();
+        buttonSaveGame = new javax.swing.JButton();
+        buttonScoreGame = new javax.swing.JButton();
+        buttonQuitAndSave = new javax.swing.JButton();
+        buttonNewGame = new javax.swing.JButton();
+        buttonViewStats = new javax.swing.JButton();
+        buttonQUIT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setLayout(new java.awt.GridLayout(15, 15, 2, 2));
 
@@ -3903,39 +4062,62 @@ public class guiFrame extends javax.swing.JFrame {
 
         jLabel453.setText("Clue List");
 
-        jTextField1.setText("jTextField1");
+        jLabel454.setText("Horizontal");
 
-        jTextField2.setText("jTextField2");
+        jList2.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList2);
+
+        jLabel455.setText("Vertical");
 
         javax.swing.GroupLayout jPanel227Layout = new javax.swing.GroupLayout(jPanel227);
         jPanel227.setLayout(jPanel227Layout);
         jPanel227Layout.setHorizontalGroup(
             jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel227Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel227Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
                         .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel453)
-                            .addGroup(jPanel227Layout.createSequentialGroup()
-                                .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel227Layout.createSequentialGroup()
-                                .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 110, Short.MAX_VALUE)))
+                            .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel227Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel453))
+                    .addGroup(jPanel227Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel455))
+                    .addGroup(jPanel227Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel454)))
                 .addContainerGap())
         );
         jPanel227Layout.setVerticalGroup(
             jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel227Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel453)
+                .addContainerGap()
+                .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel227Layout.createSequentialGroup()
+                        .addComponent(jLabel453)
+                        .addGap(0, 17, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel227Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel455)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel454)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3947,98 +4129,135 @@ public class guiFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Save Game");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonSaveGame.setText("Save Game");
+        buttonSaveGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonSaveGameActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Score Game");
-
-        jButton3.setText("Quit and Save");
-
-        jButton4.setText("Start New Game");
-
-        jButton5.setText("View Stats");
-
-        jButton6.setText("Quit");
-
-        jMenu1.setText("File");
-
-        jMenuItem1.setText("New Game");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+        buttonScoreGame.setText("Score Game");
+        buttonScoreGame.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                buttonScoreGameMouseReleased(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        buttonScoreGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonScoreGameActionPerformed(evt);
+            }
+        });
 
-        jMenuItem2.setText("Open Game");
-        jMenu1.add(jMenuItem2);
+        buttonQuitAndSave.setText("Quit and Save");
 
-        jMenuItem3.setText("Save Game");
-        jMenu1.add(jMenuItem3);
+        buttonNewGame.setText("Start New Game");
+        buttonNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNewGameActionPerformed(evt);
+            }
+        });
 
-        jMenuBar1.add(jMenu1);
+        buttonViewStats.setText("View Stats");
+        buttonViewStats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonViewStatsActionPerformed(evt);
+            }
+        });
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
+        buttonQUIT.setText("Quit");
+        buttonQUIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonQUITActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel227, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel227, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonSaveGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonNewGame, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonScoreGame, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(buttonViewStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonQUIT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonQuitAndSave, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel227, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel227, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(buttonSaveGame)
+                    .addComponent(buttonScoreGame)
+                    .addComponent(buttonQuitAndSave))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonNewGame)
+                    .addComponent(buttonViewStats)
+                    .addComponent(buttonQUIT))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void buttonSaveGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveGameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_buttonSaveGameActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonScoreGameMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonScoreGameMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_buttonScoreGameMouseReleased
+
+    private void buttonQUITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQUITActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_buttonQUITActionPerformed
+
+    private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
+        // TODO add your handling code here:
+        Data d = Data.getInstance();
+        //d.uScore = score(board);
+    }//GEN-LAST:event_buttonScoreGameActionPerformed
+
+    private void buttonViewStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewStatsActionPerformed
+        playerStatsFrame psf = new playerStatsFrame();
+        psf.setVisible(true);
+    }//GEN-LAST:event_buttonViewStatsActionPerformed
+
+    private void buttonNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewGameActionPerformed
+        // TODO add your handling code here:
+        puzzleSelectorFrame puzzleSelector = new puzzleSelectorFrame();
+        puzzleSelector.setVisible(true);
+    }//GEN-LAST:event_buttonNewGameActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        Data d = Data.getInstance();
+        d.uScore = 0;
+        loginFrame lf = new loginFrame();
+        lf.setVisible(true);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -4082,12 +4301,12 @@ public class guiFrame extends javax.swing.JFrame {
         });
     }   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton buttonNewGame;
+    private javax.swing.JButton buttonQUIT;
+    private javax.swing.JButton buttonQuitAndSave;
+    private javax.swing.JButton buttonSaveGame;
+    private javax.swing.JButton buttonScoreGame;
+    private javax.swing.JButton buttonViewStats;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -4482,6 +4701,8 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel451;
     private javax.swing.JLabel jLabel452;
     private javax.swing.JLabel jLabel453;
+    private javax.swing.JLabel jLabel454;
+    private javax.swing.JLabel jLabel455;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -4542,12 +4763,7 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
     private javax.swing.JList jList1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JList jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel100;
@@ -4776,6 +4992,7 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel98;
     private javax.swing.JPanel jPanel99;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

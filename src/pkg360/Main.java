@@ -10,11 +10,14 @@ public class Main {
         fr.setVisible(true);
         
         /*
+        puzzleSelectorFrame psf = new puzzleSelectorFrame();
+        psf.setVisible(true);
+        /*
         //
         wordSubmitFrame ws = new wordSubmitFrame();
         ws.setVisible(true);
         //
-        
+        /*
         //
         loginFrame lf = new loginFrame();
         lf.setVisible(true);
@@ -32,10 +35,9 @@ public class Main {
 
         OutputTest ot = new OutputTest();
         ot.init();
-        * 
-        */
         
         InputTest t = new InputTest();
         t.main();
+        */
     }
 }

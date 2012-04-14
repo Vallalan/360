@@ -4,10 +4,16 @@ import java.util.*;
 /*
  * @author Caleb Morris
  */
+
 public class InputTest {
 	private Vector<String> clueList;
 	private Vector<String> wordList;
 	private int sizeOfBoard;
+
+	//Access from outside class with InputTest.Orientation.ACROSS or DOWN
+	public enum Orientation {
+		ACROSS, DOWN;
+	}
 
     public void main() {
         Vector<String> v = new Vector<String>();
@@ -98,9 +104,57 @@ public class InputTest {
         }
 		//Trim the end of file header off of the wordlist
 		wordList.remove("##");
-		
+
+		//test statements for getter methods
+		System.out.println(getString(wordList.elementAt(0)));
+		System.out.println(getString(clueList.elementAt(0)));
+		System.out.println(xPos(wordList.elementAt(1)) + " " + yPos(wordList.elementAt(1)));
+		System.out.println(getLength(wordList.elementAt(0)));
+		if(getOrientation(wordList.elementAt(0)) == Orientation.ACROSS) {
+			System.out.println("Across is good");
+		}
+		if(getOrientation(clueList.elementAt(4)) == Orientation.DOWN) {
+			System.out.println("Down is good");
+		}
         System.out.println("=========================");
     }
+
+
+	//All the fun getter methods
+	public String getString(String hint) {
+		String value = hint.split("/")[0];
+		if (value.startsWith("\"")) {
+			return value.split("\"")[1];
+		} else {
+			return value;
+		}
+	}
+
+
+	public int xPos(String hint) {
+		int pos = Integer.parseInt(hint.split("/")[1]);
+		return (int)Math.floor(pos/sizeOfBoard);
+	}
+
+	public int yPos(String hint) {
+		int pos = Integer.parseInt(hint.split("/")[1]);
+		return (int)Math.IEEEremainder(pos, sizeOfBoard);
+	}
+
+	public int getLength(String hint) {
+		return Integer.parseInt(hint.split("/")[2]);
+	}
+
+	public Orientation getOrientation(String hint) {
+		String dir = hint.split("/")[3];
+
+		if(dir.startsWith("A") || dir.startsWith("a")) {
+			return Orientation.ACROSS;
+		} else {
+			return Orientation.DOWN;
+		}
+
+	}
 
 	public Vector<String> getClues() {
 		return clueList;

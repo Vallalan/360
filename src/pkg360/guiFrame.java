@@ -875,14 +875,14 @@ public class guiFrame extends javax.swing.JFrame {
         jPanel227 = new javax.swing.JPanel();
         jLabel451 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        listVertical = new javax.swing.JList();
         jLabel452 = new javax.swing.JLabel();
         jLabel453 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel454 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
+        listHorizontal = new javax.swing.JList();
         jLabel455 = new javax.swing.JLabel();
         buttonSaveGame = new javax.swing.JButton();
         buttonScoreGame = new javax.swing.JButton();
@@ -4051,12 +4051,12 @@ public class guiFrame extends javax.swing.JFrame {
 
         jLabel451.setText("Time:");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        listVertical.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listVertical);
 
         jLabel452.setText("Score:");
 
@@ -4064,12 +4064,12 @@ public class guiFrame extends javax.swing.JFrame {
 
         jLabel454.setText("Horizontal");
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
+        listHorizontal.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(listHorizontal);
 
         jLabel455.setText("Vertical");
 
@@ -4762,8 +4762,6 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
-    private javax.swing.JList jList1;
-    private javax.swing.JList jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel100;
@@ -4995,6 +4993,8 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JList listHorizontal;
+    private javax.swing.JList listVertical;
     // End of variables declaration//GEN-END:variables
     private javax.swing.JLabel[][][] my_jlabelHolder;
 }

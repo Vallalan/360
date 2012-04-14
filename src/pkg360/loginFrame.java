@@ -1,5 +1,9 @@
 package pkg360;
 
+import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Vector;
 
 /**
@@ -109,20 +113,37 @@ public class loginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        // TODO import user/password list
+        // TODO fix the error label events
         Data d = Data.getInstance();
         d.uName = textUsername.getText();
+        String line = "";
+        Gson gson = new Gson();
         
-        Vector<UserPW> upwList = new Vector<UserPW>();
-        upwList.add(new UserPW("",""));
-        
-        for (int i = 0; i < upwList.size(); i++) {
-            System.out.println(textPassword.getText());
-            System.out.println("^"+upwList.elementAt(i).uName+"^"+d.uName+"^");
-            if( d.uName.compareTo(upwList.elementAt(i).uName) == 0 ) {
+        //
+        try {
+            File f = new File("users.txt");
+            if(f.exists()) {
+                BufferedReader reader = 
+                    new BufferedReader( 
+                        new FileReader("users.txt") );
+                line = reader.readLine();
+                //System.out.println("^"+line+"^");
+            }
+            else {
+                UserPW[] t = {new UserPW("cd","cd")};
+                line = gson.toJson(t);
+            }
+        }
+        catch( Exception e ) {
+            System.out.println("Exceptione is ="+e.getMessage());
+        }
+        UserPW[] upwList = gson.fromJson(line, UserPW[].class);
+        for (int i = 0; i < upwList.length; i++) {
+            System.out.println("^"+upwList[i].uName+"^"+upwList[i].uPW+"^");
+            if( d.uName.compareTo(upwList[i].uName) == 0 ) {
                 //Username is correct
-                System.out.println(textPassword.getText().compareTo(upwList.elementAt(i).uPW));
-                if( textPassword.getText().compareTo(upwList.elementAt(i).uPW) == 0 ) {
+                System.out.println(textPassword.getText().compareTo(upwList[i].uPW));
+                if( textPassword.getText().compareTo(upwList[i].uPW) == 0 ) {
                     //PW is correct
                     this.setVisible(false);
                 }

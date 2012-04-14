@@ -63,29 +63,29 @@ public class InputTest {
         }
         System.out.println("=========================");
     }
-	public void ClearComment(Vector<String> v, int start) {
-		for( int z = start; z < v.size(); ++z) {
-					String tmp = v.elementAt(z);
-					if( tmp.indexOf("/*") > -1 && z != start ) {
-						ClearComment(v, z);
-					}
-					if( tmp.indexOf("*/") > -1 && start != -1 ) {
-						int end = z;
-						if( tmp.endsWith("*/") ) {
-							v.set(z, v.elementAt(z).substring(0, v.elementAt(z).length()-2));
-							System.out.println("\tif");
-							System.out.println(v.subList(start,end).toString());
-							v.subList(start, end+1).clear();				
-							break;
-						}
-						else {
-							System.out.println("\telse");
-							System.out.println(v.subList(start, end+1).toString());
-							v.subList(start, end+1).clear();
-							break;
-						}
-					}
-				}
-	}
+    public void ClearComment(Vector<String> v, int start) {
+        for( int z = start; z < v.size(); ++z) {
+            String tmp = v.elementAt(z);
+            if( tmp.indexOf("/*") > -1 && z != start ) {
+                ClearComment(v, z);
+            }
+            if( tmp.indexOf("*/") > -1 && start != -1 ) {
+                int end = z;
+                if( tmp.endsWith("*/") ) {
+                    v.set(z, v.elementAt(z).substring(0, v.elementAt(z).length()-2));
+                    System.out.println("\tif");
+                    System.out.println(v.subList(start,end).toString());
+                    v.subList(start, end+1).clear();				
+                    break;
+                }
+                else {
+                    System.out.println("\telse");
+                    System.out.println(v.subList(start, end+1).toString());
+                    v.subList(start, end+1).clear();
+                    break;
+                }
+            }
+        }
+    }
 }
 

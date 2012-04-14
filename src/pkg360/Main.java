@@ -35,9 +35,17 @@ public class Main {
 
         OutputTest ot = new OutputTest();
         ot.init();
-        
         InputTest t = new InputTest();
         t.main();
         */
+    }
+    public static UserPW[] expand( UserPW[] array, int size) {
+        UserPW[] temp = new UserPW[size];
+        if( array != null ) {
+            System.arraycopy(array, 0, temp, 0, array.length);
+            for(int j = array.length; j < size; j++)
+                temp[j] = null;
+        }
+        return temp;
     }
 }

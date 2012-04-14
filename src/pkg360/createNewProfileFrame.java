@@ -4,18 +4,11 @@
  */
 package pkg360;
 
-import java.util.Vector;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.lang.reflect.Type;
-import java.util.Scanner;
+import java.io.*;
 /**
  *
- * @author cdbitesky
+ * @author Caleb Morris
  */
 public class createNewProfileFrame extends javax.swing.JFrame {
 
@@ -43,6 +36,7 @@ public class createNewProfileFrame extends javax.swing.JFrame {
         textPassConf = new javax.swing.JTextField();
         buttonCreate = new javax.swing.JButton();
         buttonCancel = new javax.swing.JButton();
+        labelError = new javax.swing.JLabel();
 
         setTitle("Create New Profile");
 
@@ -77,27 +71,25 @@ public class createNewProfileFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(textPassword)
-                        .addGap(19, 19, 19)
-                        .addComponent(buttonCreate))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(textPassConf)
-                        .addGap(19, 19, 19)
-                        .addComponent(buttonCancel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(textUName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 84, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textPassConf, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                    .addComponent(textPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textUName, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(buttonCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textUName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textUName)
+                    .addComponent(jLabel1)
+                    .addComponent(labelError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -122,52 +114,55 @@ public class createNewProfileFrame extends javax.swing.JFrame {
         
         //import userbase
         try {
-            BufferedReader reader = 
-                new BufferedReader( 
-                    new FileReader("users.txt") );
-            line= reader.readLine();
+            File f = new File("users.txt");
+            if(f.exists()) {
+                BufferedReader reader = 
+                    new BufferedReader( 
+                        new FileReader("users.txt") );
+                line = reader.readLine();
+                //System.out.println("^"+line+"^");
+            }
+            else {
+                UserPW[] t = {new UserPW("cd","cd")};
+                line = gson.toJson(t);
+            }
         }
         catch( Exception e ) {
             System.out.println("Exceptione is ="+e.getMessage());
         }
-        // TODO fix json parser input errors
-        // TODO add check if file exists
-        Type collectionType = new TypeToken<Vector<Integer>>(){}.getType();
-        Vector<UserPW> upwList = gson.fromJson(line, collectionType);
-        //Vector<UserPW> upwList = new Vector<UserPW>();
-        if( upwList.size() <= 0 || upwList.elementAt(0).uName.compareTo("") != 0 )
-            upwList.add(new UserPW("",""));
-        
-        for (int i = 0; i < upwList.size(); i++) {
-            System.out.println(upwList.elementAt(i).uName + upwList.elementAt(i).uPW);
+        UserPW[] upwList = gson.fromJson(line, UserPW[].class);
+        for (int i = 0; i < upwList.length; i++) {
+            System.out.println(upwList[i].uName +" "+ upwList[i].uPW);
         }
-        
-        for (int i = 0; i < upwList.size(); i++) {
-            if( upwList.elementAt(i).uName.compareTo(d.uName) == 0 ) {
-                // Already exists
+        boolean flag = true;
+        for (int i = 0; i < upwList.length; i++) {
+            if( upwList[i].uName.compareTo(d.uName) == 0 ) {
+                flag = false;
+                labelError.setText("Uname Exists");
             }
         }
-        if( textPassConf.getText().compareTo(textPassword.getText()) == 0 ) {
-            upwList.add(new UserPW(d.uName, textPassword.getText()));
-            
-            try {
-                PrintWriter out = new PrintWriter(
-                    new FileWriter("users.txt"));
-                
-                out.print(gson.toJson(upwList));
-                out.close();
-                
-                this.setVisible(false);
+        if( flag ) {
+            if( textPassConf.getText().compareTo(textPassword.getText()) == 0 ) {
+                upwList = Main.expand(upwList, upwList.length+1);
+                upwList[upwList.length-1] = new UserPW(d.uName, textPassword.getText());
+                try {
+                    PrintWriter out = new PrintWriter(
+                        new FileWriter("users.txt"));
+                    out.print(gson.toJson(upwList));
+                    out.close();
+                    this.setVisible(false);
+                }
+                catch( Exception e ) {
+                    System.out.println("Exceptione is ="+e.getMessage());
+                }
             }
-            catch( Exception e ) {
-                System.out.println("Exceptione is ="+e.getMessage());
+            else {
+                // Conf != pw
+                labelError.setText("PW Mismatch");
             }
-        }
-        else {
-            // Conf != pw
         }
     }//GEN-LAST:event_buttonCreateActionPerformed
-
+    
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         loginFrame lf = new loginFrame();
         lf.setVisible(true);
@@ -215,12 +210,14 @@ public class createNewProfileFrame extends javax.swing.JFrame {
             }
         });
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel labelError;
     private javax.swing.JTextField textPassConf;
     private javax.swing.JTextField textPassword;
     private javax.swing.JTextField textUName;

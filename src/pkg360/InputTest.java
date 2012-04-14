@@ -5,6 +5,10 @@ import java.util.*;
  * @author Caleb Morris
  */
 public class InputTest {
+	private Vector<String> clueList;
+	private Vector<String> wordList;
+	private int sizeOfBoard;
+
     public void main() {
         Vector<String> v = new Vector<String>();
         String fileName = "test_file.txt";
@@ -36,12 +40,12 @@ public class InputTest {
             //System.out.println("\t"+v.size());
         }
 
-		int sizeOfBoard = -1;
+		sizeOfBoard = -1;
 		//structure of clue and words lists is map(posisiton -> map(orientation -> string))
 		//orientations 0 for accros, 1 for down
 		
-		Vector<String> clueList = new Vector<String>();
-		Vector<String> wordList = new Vector<String>();
+		clueList = new Vector<String>();
+		wordList = new Vector<String>();
 
         System.out.println("=========================");
         for( int i = 0; i < v.size(); ++i ) {
@@ -54,13 +58,18 @@ public class InputTest {
 
 			//to add a clue to the list
 			} else if( tmp.indexOf('\"') > -1) {
+
+				//Add a clue to the clueList
 				String clue= tmp; //begin the clue string
+
+				//Finish the clue string
 				do  {
 						++i;
 						tmp = v.elementAt(i);
 						clue = clue + " " + tmp;
 				} while( tmp.indexOf('\"') == -1);
 
+				//Append the extra elements of the clue, delimited by '/'
 				while( tmp.indexOf('#') == -1) {
 					clue = clue + "/" + tmp;
 					++i;
@@ -70,11 +79,14 @@ public class InputTest {
 				System.out.println(clue);
 				clueList.add(clue);
 			} else if (!tmp.equals(""))  {
+
+				//Add a word to the wordlist
 				String word = tmp;
 				while( tmp.indexOf('#') == -1) {
-					word = word + "/" + tmp;
+					
 					++i;
 					tmp = v.elementAt(i);
+					word = word + "/" + tmp;
 					
 				}
 				System.out.println(word);
@@ -84,12 +96,23 @@ public class InputTest {
 
            
         }
+		//Trim the end of file header off of the wordlist
 		wordList.remove("##");
-		System.out.println(wordList.lastElement());
+		
         System.out.println("=========================");
     }
 
+	public Vector<String> getClues() {
+		return clueList;
+	}
 
+	public Vector<String> getWords() {
+		return wordList;
+	}
+
+	public int getBoardSize() {
+		return sizeOfBoard;
+	}
 
 	private boolean isParsableToInt(String z) {
 		try {

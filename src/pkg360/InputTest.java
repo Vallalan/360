@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 /*
  * @author Caleb Morris
+ * @author Alan Gieske
  */
 public class InputTest {
     public void main() {

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg360;
 
 import com.google.gson.Gson;
@@ -12,8 +8,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
- *
- * @author cdbitesky
+ * @author Caleb Morris
  */
 public class playerStatsFrame extends javax.swing.JFrame {
 

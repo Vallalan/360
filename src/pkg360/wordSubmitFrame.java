@@ -29,7 +29,7 @@ public class wordSubmitFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        textAnswer = new javax.swing.JTextField();
         buttonCancel = new javax.swing.JButton();
         buttonSubmit = new javax.swing.JButton();
         labelHint = new javax.swing.JLabel();
@@ -70,7 +70,7 @@ public class wordSubmitFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buttonSubmit)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(textAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -81,7 +81,7 @@ public class wordSubmitFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCancel)
@@ -97,10 +97,24 @@ public class wordSubmitFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSubmitActionPerformed
-        // TODO add your handling code here:
-        // Get selected hint from Transfer
-        // Allow only the matching length number of characters.
+        // TODO Allow only the matching length number of characters.
         // Update score on submit
+        Transfer t = Transfer.getInstance();
+        UserData d = UserData.getInstance();
+        Hint tmp = t.current;
+        String word = textAnswer.getText().substring(0, tmp.length);
+        if( d.uHints != null ) {
+            for (int i = 0; i < d.uHints.length; i++) {
+                if( d.uHints[i].compareTo(tmp) == 0 ) {
+                    d.uHints[i].guess = word;
+                    break;
+                }
+            }
+        }
+        //d.uHints[];
+        //if( true ) {
+            
+        //}
     }//GEN-LAST:event_buttonSubmitActionPerformed
 
     /**
@@ -148,7 +162,7 @@ public class wordSubmitFrame extends javax.swing.JFrame {
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonSubmit;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelHint;
+    private javax.swing.JTextField textAnswer;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,6 +19,7 @@ public class Score implements Comparable<Score>{
         //endtime = ;
     }
     
+    @Override
     public int compareTo(Score otherScore) {
         if(this.uScore > otherScore.uScore) {
             return 1;

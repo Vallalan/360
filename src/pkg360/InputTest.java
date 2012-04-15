@@ -9,6 +9,7 @@ import java.util.*;
 public class InputTest {
 	private Vector<String> clueList;
 	private Vector<String> wordList;
+	private Vector<String> finalList;
 	private int sizeOfBoard;
 	private String fileName;
 
@@ -94,8 +95,8 @@ public class InputTest {
 
 				//Finish the clue string
 				do  {
-						++i;
-						tmp = v.elementAt(i);
+						
+						tmp = v.elementAt(++i);
 						clue = clue + " " + tmp;
 				} while( tmp.indexOf('\"') == -1);
 
@@ -117,10 +118,16 @@ public class InputTest {
 
 				//Add a word and all data to the wordlist
 				String word = tmp;
-				while( tmp.indexOf('#') == -1) {										
+			
+				while( tmp.indexOf('#') == -1) {
 					tmp = v.elementAt(++i);
-					word = word + "/" + tmp;					
+					word = word + "/" + tmp;
+					
+					
+					
+										
 				}
+				
 				System.out.println(word);
 				wordList.add(word);
 			}
@@ -131,27 +138,48 @@ public class InputTest {
 		//Trim the end of file header off of the wordlist
 		wordList.remove("##");
 
+		finalList = MergeLists(clueList, wordList);
+		System.out.println(finalList);
 		//test statements for getter methods
-		System.out.println(getString(wordList.elementAt(0)));
-		System.out.println(getString(clueList.elementAt(0)));
-		System.out.println(xPos(clueList.elementAt(1)) + " " + yPos(clueList.elementAt(1)));
-		System.out.println(xPos(wordList.elementAt(1)) + " " + yPos(wordList.elementAt(1)));
-		System.out.println(getLength(wordList.elementAt(0)));
-		if(getOrientation(wordList.elementAt(0)) == Orientation.ACROSS) {
+		System.out.println(getHint(finalList.elementAt(0)));
+		System.out.println(getWord(finalList.elementAt(0)));
+		System.out.println(xPos(finalList.elementAt(1)) + " " + yPos(finalList.elementAt(1)));
+		
+		System.out.println(getLength(finalList.elementAt(0)));
+		
+		if(getOrientation(finalList.elementAt(0)) == Orientation.ACROSS) {
 			System.out.println("Across is good");
 		}
-		if(getOrientation(clueList.elementAt(4)) == Orientation.DOWN) {
+		if(getOrientation(finalList.elementAt(5)) == Orientation.DOWN) {
 			System.out.println("Down is good");
 		}
 
         System.out.println("=========================");
     }
 
+	private Vector<String> MergeLists(Vector<String> clues, Vector<String> words) {
+		Vector<String> across = new Vector<String>();
+		Vector<String> down = new Vector<String>();
+
+		for( int i = 0; i<clues.size(); ++i) {
+			String hint = getString(clues.elementAt(i));
+			if(words.elementAt(i).startsWith("A")) {
+				across.add(hint + "/" + words.elementAt(i));
+			} else {
+				down.add(hint + "/" + words.elementAt(i));
+			}
+		}
+
+		for( int z = 0; z < down.size(); ++z) {
+			across.add(down.elementAt(z));
+		}
+		return across;
+	}
 
 	//All the getter methods
 
 	//gets the string value given a clue or word from one of the Lists
-	public String getString(String hint) {
+	private String getString(String hint) {
 		String value = hint.split("/")[0];
 		if (value.startsWith("\"")) {
 			return value.split("\"")[1];
@@ -160,27 +188,35 @@ public class InputTest {
 		}
 	}
 
+	public String getHint(String hint) {
+		return hint.split("/")[0];
+	}
+
+	public String getWord(String hint) {
+		return hint.split("/")[1];
+	}
+
 
 	//returns the x position of the word or clue
 	public int xPos(String hint) {
-		int pos = Integer.parseInt(hint.split("/")[1]);
+		int pos = Integer.parseInt(hint.split("/")[2]);
 		return (int)Math.floor(pos/sizeOfBoard);
 	}
 
 	//returns the y position of the word or clue
 	public int yPos(String hint) {
-		int pos = Integer.parseInt(hint.split("/")[1]);
+		int pos = Integer.parseInt(hint.split("/")[2]);
 		return (int)Math.IEEEremainder(pos, sizeOfBoard);
 	}
 
 	//returns the length of the word or clue
 	public int getLength(String hint) {
-		return Integer.parseInt(hint.split("/")[2]);
+		return Integer.parseInt(hint.split("/")[3]);
 	}
 
 	//returns the orientation of the word or clue
 	public Orientation getOrientation(String hint) {
-		String dir = hint.split("/")[3];
+		String dir = hint.split("/")[4];
 
 		if(dir.startsWith("A") || dir.startsWith("a")) {
 			return Orientation.ACROSS;
@@ -190,14 +226,8 @@ public class InputTest {
 
 	}
 
-	//returns the clueList
-	public Vector<String> getClues() {
-		return clueList;
-	}
-
-	//returns the wordList
 	public Vector<String> getWords() {
-		return wordList;
+		return finalList;
 	}
 
 	//returns the BoardSize

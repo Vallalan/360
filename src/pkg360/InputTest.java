@@ -143,19 +143,40 @@ public class InputTest {
 		//test statements for getter methods
 		System.out.println(getHint(finalList.elementAt(0)));
 		System.out.println(getWord(finalList.elementAt(0)));
-		System.out.println(xPos(finalList.elementAt(1)) + " " + yPos(finalList.elementAt(1)));
+		System.out.println(xPos(finalList.elementAt(0)) + " " + yPos(finalList.elementAt(0)));
 		
 		System.out.println(getLength(finalList.elementAt(0)));
 		
-		if(getOrientation(finalList.elementAt(0)) == Orientation.ACROSS) {
+		if(getOrientation(finalList.elementAt(0)) == Hint.Orientation.ACROSS) {
 			System.out.println("Across is good");
 		}
-		if(getOrientation(finalList.elementAt(5)) == Orientation.DOWN) {
+		if(getOrientation(finalList.elementAt(5)) == Hint.Orientation.DOWN) {
 			System.out.println("Down is good");
 		}
 
         System.out.println("=========================");
     }
+
+	public Vector<Hint> getHints() {
+		Vector<Hint> hints = new Vector<Hint>();
+		for(int i = 0; i<finalList.size(); ++i) {
+			hints.add(StringToHint(finalList.elementAt(i)));
+		}
+		return hints;
+
+	}
+
+	public Hint StringToHint(String s) {
+		String answer = getWord(s);
+		String hint = getHint(s);
+		int xpos = xPos(s);
+		int ypos = yPos(s);
+		int length = getLength(s);
+		Hint.Orientation ori = getOrientation(s);
+		Hint x = new Hint(answer, hint, xpos, ypos, length, ori);
+		return x;
+
+	}
 
 	private Vector<String> MergeLists(Vector<String> clues, Vector<String> words) {
 		Vector<String> across = new Vector<String>();
@@ -215,13 +236,13 @@ public class InputTest {
 	}
 
 	//returns the orientation of the word or clue
-	public Orientation getOrientation(String hint) {
+	public Hint.Orientation getOrientation(String hint) {
 		String dir = hint.split("/")[4];
 
 		if(dir.startsWith("A") || dir.startsWith("a")) {
-			return Orientation.ACROSS;
+			return Hint.Orientation.ACROSS;
 		} else {
-			return Orientation.DOWN;
+			return Hint.Orientation.DOWN;
 		}
 
 	}

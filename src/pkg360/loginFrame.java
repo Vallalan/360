@@ -116,7 +116,7 @@ public class loginFrame extends javax.swing.JFrame {
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO fix the error label events
-        Data d = Data.getInstance();
+        UserData d = UserData.getInstance();
         d.uName = textUsername.getText();
         String line = "";
         Gson gson = new Gson();
@@ -144,11 +144,33 @@ public class loginFrame extends javax.swing.JFrame {
             System.out.println("^"+upwList[i].uName+"^"+upwList[i].uPW+"^");
             if( d.uName.compareTo(upwList[i].uName) == 0 ) {
                 //Username is correct
-                System.out.println(textPassword.getText().compareTo(upwList[i].uPW));
                 if( textPassword.getText().compareTo(upwList[i].uPW) == 0 ) {
                     //PW is correct
                     this.setVisible(false);
-                    
+                    System.out.println("entering new pull");
+                    //TODO fix this spot
+                    // throws error
+                    try {
+                        File f = new File("saves.txt");
+                        if(f.exists()) {
+                            BufferedReader reader = 
+                                new BufferedReader( 
+                                    new FileReader("saves.txt") );
+                            line = reader.readLine();
+                            //System.out.println("^"+line+"^");
+                        }
+                        else {
+                            UserData[] t = {d};
+                            line = gson.toJson(t);
+                        }
+                    }
+                    catch( Exception e ) {
+                        System.out.println("Exceptione is ="+e.getMessage());
+                    }
+                    UserData[] dataList = gson.fromJson(line, UserData[].class);
+                    SaveData s = SaveData.getInstance();
+                    s.userSaves = dataList;
+                    System.out.println("exiting new pull");
                     // Start timer
                     int delay = 5000;   // delay for 5 sec.
                     int period = 1000;  // repeat every sec.

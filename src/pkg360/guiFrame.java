@@ -179,7 +179,7 @@ public class guiFrame extends javax.swing.JFrame {
             jPanel216, jPanel217, jPanel218, jPanel219, jPanel220, jPanel221, 
             jPanel222, jPanel223, jPanel224, jPanel225, jPanel226}
         };
-        Data d = Data.getInstance();
+        UserData d = UserData.getInstance();
         Board b_ = new Board(my_jlabelHolder);
         b_.init(panelHolder);
         d.board_= b_;
@@ -4056,6 +4056,11 @@ public class guiFrame extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        listVertical.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                listVerticalMouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(listVertical);
 
         jLabel452.setText("Score:");
@@ -4068,6 +4073,11 @@ public class guiFrame extends javax.swing.JFrame {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
+        });
+        listHorizontal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                listHorizontalMouseReleased(evt);
+            }
         });
         jScrollPane2.setViewportView(listHorizontal);
 
@@ -4242,8 +4252,9 @@ public class guiFrame extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         textScore.setEditable(false);
         textTime.setEditable(false);
-        Data d = Data.getInstance();
+        UserData d = UserData.getInstance();
         d.uScore = 0;
+        SaveData s = SaveData.getInstance();
         loginFrame lf = new loginFrame();
         lf.setVisible(true);
         //this.setFocusableWindowState(false);
@@ -4259,6 +4270,14 @@ public class guiFrame extends javax.swing.JFrame {
         Main.save();
         System.exit(0);
     }//GEN-LAST:event_buttonQuitAndSaveActionPerformed
+
+    private void listVerticalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listVerticalMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listVerticalMouseReleased
+
+    private void listHorizontalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listHorizontalMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listHorizontalMouseReleased
 
     /**
      * @param args the command line arguments

@@ -15,7 +15,7 @@ public class playerStatsFrame extends javax.swing.JFrame {
      */
     public playerStatsFrame() {
         initComponents();
-        Data d = Data.getInstance();
+        UserData d = UserData.getInstance();
         setTitle("Player Statistics - " + d.uName);
     }
 

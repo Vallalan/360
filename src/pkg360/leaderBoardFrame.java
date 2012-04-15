@@ -4,6 +4,12 @@
  */
 package pkg360;
 
+import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Arrays;
+
 /**
  *
  * @author cdbitesky
@@ -131,11 +137,47 @@ public class leaderBoardFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCloseActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_buttonCloseActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        String line = "";
+        Gson gson = new Gson();
+        
+        try {
+            File f = new File("top_scores.txt");
+            if(f.exists()) {
+                BufferedReader reader = 
+                    new BufferedReader( 
+                        new FileReader("top_scores.txt") );
+                line = reader.readLine();
+                //System.out.println("^"+line+"^");
+            }
+            else {
+                Score[] t = {new Score(0, "cd")};
+                line = gson.toJson(t);
+            }
+        }
+        catch( Exception e ) {
+            System.out.println("Exceptione is ="+e.getMessage());
+        }
+        Score[] scoreList = gson.fromJson(line, Score[].class);
+        if( scoreList.length < 4 ) {
+            int tmp = scoreList.length - 1;
+            Main.expand(scoreList, 4);
+            for (int i = tmp; i < 4; i++) {
+                scoreList[i] = new Score(0, "cd");
+            }
+        }
+        Score[] top5 = new Score[4];
+        Arrays.sort(scoreList);
+        System.arraycopy(scoreList, 0, top5, 0, 4);
+        {
+            labelPlayer1.setText(top5[0].uName); labelScore1.setText(""+top5[0].uScore);
+            labelPlayer2.setText(top5[1].uName); labelScore2.setText(""+top5[1].uScore);
+            labelPlayer3.setText(top5[2].uName); labelScore3.setText(""+top5[2].uScore);
+            labelPlayer4.setText(top5[3].uName); labelScore4.setText(""+top5[3].uScore);
+        }
     }//GEN-LAST:event_formWindowOpened
 
     /**

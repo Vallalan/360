@@ -8289,6 +8289,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listVerticalMouseReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -8330,6 +8333,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listHorizontalMouseReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -2,18 +2,20 @@ package pkg360;
 /**
  * @author Caleb Morris
  */
-public class Data {
-   private static Data instance = null;
+public class UserData {
+   private static UserData instance = null;
    public String uName;
    public int uScore;
    public Board board_;
    public int time;
-   protected Data() {
+   public String saveName;
+   public Hint[] uHints;
+   protected UserData() {
       // Exists only to defeat instantiation.
    }
-   public static Data getInstance() {
+   public static UserData getInstance() {
       if(instance == null) {
-         instance = new Data();
+         instance = new UserData();
       }
       return instance;
    }

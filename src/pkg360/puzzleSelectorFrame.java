@@ -4,6 +4,9 @@
  */
 package pkg360;
 
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author cdbitesky
@@ -66,7 +69,7 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
         });
 
         listSelect.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "New Game 1", "New Game 2", "Save1", "Save2", "Save3" };
+            String[] strings = { "New Game 1" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -149,7 +152,24 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        UserData d = UserData.getInstance();
+        SaveData s = SaveData.getInstance();
+        Vector<UserData> v = new Vector<UserData>();
         
+        System.out.println("fk");
+        //TODO finish SaveData Import
+        /*
+        for (int i = 0; i < s.userSaves.length; i++) {
+            if( s.userSaves[i].uName == d.uName ) {
+                v.add(s.userSaves[i]);
+            }
+        }
+        */
+        DefaultListModel listM = new DefaultListModel();
+        d.saveName = "New Game";
+        v.add(0, d);
+        listM.addElement(v.elementAt(0).saveName);
+        listSelect.setModel(listM);
     }//GEN-LAST:event_formWindowOpened
 
     /**

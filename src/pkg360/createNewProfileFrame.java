@@ -107,7 +107,7 @@ public class createNewProfileFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateActionPerformed
-        Data d = Data.getInstance();
+        UserData d = UserData.getInstance();
         d.uName = textUName.getText();
         String line = "";
         Gson gson = new Gson();

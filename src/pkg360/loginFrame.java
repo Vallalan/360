@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
 /**
@@ -146,6 +148,18 @@ public class loginFrame extends javax.swing.JFrame {
                 if( textPassword.getText().compareTo(upwList[i].uPW) == 0 ) {
                     //PW is correct
                     this.setVisible(false);
+                    
+                    // Start timer
+                    int delay = 5000;   // delay for 5 sec.
+                    int period = 1000;  // repeat every sec.
+                    Timer timer = new Timer();
+
+                    timer.scheduleAtFixedRate(new TimerTask() {
+                        public void run() {
+                            System.out.println("test");
+                        }
+                    }, delay, period);
+                    //
                 }
                 else{
                     //PW Wrong

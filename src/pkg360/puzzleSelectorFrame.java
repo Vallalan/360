@@ -39,6 +39,11 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
         listNumbPlayers = new javax.swing.JList();
 
         setTitle("Puzzle Selector");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Select One:");
 
@@ -137,7 +142,15 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
 
     private void buttonStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStartGameActionPerformed
         // TODO add your handling code here:
+        System.out.println(listDifficulty.getSelectedValue());
+        System.out.println(listNumbPlayers.getSelectedValue());
+        System.out.println(listSelect.getSelectedValue());
     }//GEN-LAST:event_buttonStartGameActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

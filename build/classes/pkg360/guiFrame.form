@@ -8208,8 +8208,8 @@
                           </Group>
                           <EmptySpace pref="32" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField1" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                              <Component id="jTextField2" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="textScore" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="textTime" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -8252,12 +8252,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel452" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textScore" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel451" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textTime" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -8302,9 +8302,9 @@
             <Property name="text" type="java.lang.String" value="Clue List"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="textScore">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="textTime">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel454">
           <Properties>
@@ -8353,7 +8353,6 @@
         <Property name="text" type="java.lang.String" value="Score Game"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonScoreGameMouseReleased"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonScoreGameActionPerformed"/>
       </Events>
     </Component>
@@ -8361,6 +8360,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Quit and Save"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonQuitAndSaveActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonNewGame">
       <Properties>

@@ -878,8 +878,8 @@ public class guiFrame extends javax.swing.JFrame {
         listVertical = new javax.swing.JList();
         jLabel452 = new javax.swing.JLabel();
         jLabel453 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        textScore = new javax.swing.JTextField();
+        textTime = new javax.swing.JTextField();
         jLabel454 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listHorizontal = new javax.swing.JList();
@@ -4088,8 +4088,8 @@ public class guiFrame extends javax.swing.JFrame {
                             .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textScore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel227Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel453))
@@ -4121,11 +4121,11 @@ public class guiFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -4137,11 +4137,6 @@ public class guiFrame extends javax.swing.JFrame {
         });
 
         buttonScoreGame.setText("Score Game");
-        buttonScoreGame.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                buttonScoreGameMouseReleased(evt);
-            }
-        });
         buttonScoreGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonScoreGameActionPerformed(evt);
@@ -4149,6 +4144,11 @@ public class guiFrame extends javax.swing.JFrame {
         });
 
         buttonQuitAndSave.setText("Quit and Save");
+        buttonQuitAndSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonQuitAndSaveActionPerformed(evt);
+            }
+        });
 
         buttonNewGame.setText("Start New Game");
         buttonNewGame.addActionListener(new java.awt.event.ActionListener() {
@@ -4221,24 +4221,13 @@ public class guiFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveGameActionPerformed
-        // TODO add your handling code here:
+        // TODO test
+        Main.save();
     }//GEN-LAST:event_buttonSaveGameActionPerformed
 
-    private void buttonScoreGameMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonScoreGameMouseReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_buttonScoreGameMouseReleased
-
     private void buttonQUITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQUITActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_buttonQUITActionPerformed
-
-    private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
-        // TODO add your handling code here:
-        Data d = Data.getInstance();
-        //d.uScore = score(board);
-    }//GEN-LAST:event_buttonScoreGameActionPerformed
 
     private void buttonViewStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewStatsActionPerformed
         playerStatsFrame psf = new playerStatsFrame();
@@ -4246,18 +4235,30 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonViewStatsActionPerformed
 
     private void buttonNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewGameActionPerformed
-        // TODO add your handling code here:
         puzzleSelectorFrame puzzleSelector = new puzzleSelectorFrame();
         puzzleSelector.setVisible(true);
     }//GEN-LAST:event_buttonNewGameActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        textScore.setEditable(false);
+        textTime.setEditable(false);
         Data d = Data.getInstance();
         d.uScore = 0;
         loginFrame lf = new loginFrame();
         lf.setVisible(true);
+        //this.setFocusableWindowState(false);
     }//GEN-LAST:event_formWindowOpened
+
+    private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_buttonScoreGameActionPerformed
+
+    private void buttonQuitAndSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQuitAndSaveActionPerformed
+        // TODO test
+        Main.save();
+        System.exit(0);
+    }//GEN-LAST:event_buttonQuitAndSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4991,10 +4992,10 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel99;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JList listHorizontal;
     private javax.swing.JList listVertical;
+    private javax.swing.JTextField textScore;
+    private javax.swing.JTextField textTime;
     // End of variables declaration//GEN-END:variables
     private javax.swing.JLabel[][][] my_jlabelHolder;
 }

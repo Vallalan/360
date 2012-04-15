@@ -98,7 +98,9 @@ public class wordSubmitFrame extends javax.swing.JFrame {
 
     private void buttonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSubmitActionPerformed
         // TODO add your handling code here:
-        
+        // Get selected hint from Transfer
+        // Allow only the matching length number of characters.
+        // Update score on submit
     }//GEN-LAST:event_buttonSubmitActionPerformed
 
     /**

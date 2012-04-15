@@ -13,4 +13,13 @@ public class Hint {
     public int startY;
     public int length;
     public Orientation ori;
+    
+    public Hint( String answer, String hint, int x , int y, int length, Orientation ori ) {
+        this.answer = answer;
+        this.hint = hint;
+        this.startX = x;
+        this.startY = y;
+        this.length = length;
+        this.ori = ori;
+    }
 }

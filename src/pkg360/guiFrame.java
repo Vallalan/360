@@ -4261,8 +4261,9 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
-        // TODO add your handling code here:
-        
+        UserData d = UserData.getInstance();
+        textScore.setText(""+d.uScore);
+        //TODO decide if i want to write anything on save or just on svae and quit
     }//GEN-LAST:event_buttonScoreGameActionPerformed
 
     private void buttonQuitAndSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQuitAndSaveActionPerformed
@@ -4272,11 +4273,11 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonQuitAndSaveActionPerformed
 
     private void listVerticalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listVerticalMouseReleased
-        // TODO add your handling code here:
+        // TODO on click open word submit of that hint
     }//GEN-LAST:event_listVerticalMouseReleased
 
     private void listHorizontalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listHorizontalMouseReleased
-        // TODO add your handling code here:
+        // TODO on click open word submit of that hint
     }//GEN-LAST:event_listHorizontalMouseReleased
 
     /**

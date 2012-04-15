@@ -158,17 +158,19 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
         
         System.out.println("fk");
         //TODO finish SaveData Import
-        /*
-        for (int i = 0; i < s.userSaves.length; i++) {
-            if( s.userSaves[i].uName == d.uName ) {
-                v.add(s.userSaves[i]);
+        if( s.userSaves != null ) {
+            for (int i = 0; i < s.userSaves.length; i++) {
+                if( s.userSaves[i].uName == d.uName ) {
+                    v.add(s.userSaves[i]);
+                }
             }
         }
-        */
         DefaultListModel listM = new DefaultListModel();
         d.saveName = "New Game";
         v.add(0, d);
-        listM.addElement(v.elementAt(0).saveName);
+        for (int i = 0; i < v.size(); i++) {
+            listM.addElement(v.elementAt(i).saveName);
+        }
         listSelect.setModel(listM);
     }//GEN-LAST:event_formWindowOpened
 

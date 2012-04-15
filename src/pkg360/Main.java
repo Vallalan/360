@@ -10,28 +10,6 @@ public class Main {
         fr.setVisible(true);
         
         /*
-        puzzleSelectorFrame psf = new puzzleSelectorFrame();
-        psf.setVisible(true);
-        /*
-        //
-        wordSubmitFrame ws = new wordSubmitFrame();
-        ws.setVisible(true);
-        //
-        /*
-        //
-        loginFrame lf = new loginFrame();
-        lf.setVisible(true);
-        //
-        
-        //
-        playerStatsFrame ps = new playerStatsFrame();
-        ps.setVisible(true);
-        //
-        
-        //
-        createNewProfileFrame cnp = new createNewProfileFrame();
-        cnp.setVisible(true);
-        //
         InputTest t = new InputTest();
         t.main();
         */
@@ -54,19 +32,34 @@ public class Main {
         }
         return temp;
     }
+    public static UserData[] expand( UserData[] array, int size) {
+        UserData[] temp = new UserData[size];
+        if( array != null ) {
+            System.arraycopy(array, 0, temp, 0, array.length);
+            for(int j = array.length; j < size; j++)
+                temp[j] = null;
+        }
+        return temp;
+    }
     public static void save() {
         // TODO finish save method
         SaveData s = SaveData.getInstance();
         UserData d = UserData.getInstance();
-        // TODO find the current count of save numbers, add one
-        // expand the collection of saves by 1
-        // Add current to it
-        // Write it
+        if( s.userSaves == null ) {
+            s.userSaves = Main.expand(s.userSaves, 1);
+        }
+        else {
+            s.userSaves = Main.expand(s.userSaves, s.userSaves.length+1);
+        }
+        System.out.println("null check");
+        s.userSaves[s.userSaves.length-1] = d;
+        // TODO update every val of UserData before adding to array
         Gson gson = new Gson();
         try {
             PrintWriter out = new PrintWriter(
-                new FileWriter("users.txt"));
-            //out.print(gson.toJson(/**/));
+                new FileWriter("saves.txt"));
+            //TODO fix stupid json error
+            out.print(gson.toJson(s.userSaves));
             out.close();
         }
         catch( Exception e ) {

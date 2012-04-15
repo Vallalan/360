@@ -148,7 +148,7 @@ public class loginFrame extends javax.swing.JFrame {
                     //PW is correct
                     this.setVisible(false);
                     System.out.println("entering new pull");
-                    //TODO fix this spot
+                    //TODO fix saves import
                     // throws error
                     try {
                         File f = new File("saves.txt");

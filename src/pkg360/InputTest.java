@@ -10,6 +10,7 @@ public class InputTest {
 	private Vector<String> clueList;
 	private Vector<String> wordList;
 	private int sizeOfBoard;
+	private String fileName;
 
 	//enum for the direction of a word (across or down)
 	//Access from outside class with InputTest.Orientation.ACROSS or DOWN
@@ -17,9 +18,17 @@ public class InputTest {
 		ACROSS, DOWN;
 	}
 
+	public InputTest() {
+		fileName = "test_file.txt";
+	}
+	
+	public InputTest(String fileName) {
+		this.fileName = fileName;
+	}
+
     public void main() {
         Vector<String> v = new Vector<String>();
-        String fileName = "test_file.txt";
+        
 
 
         try {

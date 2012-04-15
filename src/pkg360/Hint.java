@@ -9,6 +9,7 @@ public class Hint {
     }
     public String answer;
     public String hint;
+    public String guess;
     public int startX;
     public int startY;
     public int length;
@@ -21,5 +22,6 @@ public class Hint {
         this.startY = y;
         this.length = length;
         this.ori = ori;
+        this.guess = "";
     }
 }

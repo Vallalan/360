@@ -1,15 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg360;
 
 import java.util.Vector;
 import javax.swing.DefaultListModel;
-
 /**
  *
- * @author cdbitesky
+ * @author Caleb Morris
  */
 public class puzzleSelectorFrame extends javax.swing.JFrame {
 

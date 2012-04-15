@@ -4250,11 +4250,12 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonNewGameActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO import hints
         textScore.setEditable(false);
         textTime.setEditable(false);
         UserData d = UserData.getInstance();
-        d.uScore = 0;
         SaveData s = SaveData.getInstance();
+        d.uScore = 0;
         loginFrame lf = new loginFrame();
         lf.setVisible(true);
         //this.setFocusableWindowState(false);
@@ -4274,10 +4275,14 @@ public class guiFrame extends javax.swing.JFrame {
 
     private void listVerticalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listVerticalMouseReleased
         // TODO on click open word submit of that hint
+        Transfer t = Transfer.getInstance();
+        listVertical.getSelectedIndex();
     }//GEN-LAST:event_listVerticalMouseReleased
 
     private void listHorizontalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listHorizontalMouseReleased
         // TODO on click open word submit of that hint
+        Transfer t = Transfer.getInstance();
+        listHorizontal.getSelectedIndex();
     }//GEN-LAST:event_listHorizontalMouseReleased
 
     /**

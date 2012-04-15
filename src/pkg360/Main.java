@@ -1,41 +1,69 @@
 package pkg360;
 
-public class Main {
+import com.google.gson.Gson;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
-    /**
-     * @param args the command line arguments
-     */
+public class Main {
     public static void main(String[] args) {
         guiFrame fr = new guiFrame();
         fr.setVisible(true);
         
         /*
-        //
-        wordSubmitFrame ws = new wordSubmitFrame();
-        ws.setVisible(true);
-        //
-        
-        //
-        loginFrame lf = new loginFrame();
-        lf.setVisible(true);
-        //
-        
-        //
-        playerStatsFrame ps = new playerStatsFrame();
-        ps.setVisible(true);
-        //
-        
-        //
-        createNewProfileFrame cnp = new createNewProfileFrame();
-        cnp.setVisible(true);
-        //
-
-        OutputTest ot = new OutputTest();
-        ot.init();
-        * 
-        */
-        
         InputTest t = new InputTest();
         t.main();
+        */
+    }
+    public static UserPW[] expand( UserPW[] array, int size) {
+        UserPW[] temp = new UserPW[size];
+        if( array != null ) {
+            System.arraycopy(array, 0, temp, 0, array.length);
+            for(int j = array.length; j < size; j++)
+                temp[j] = null;
+        }
+        return temp;
+    }
+    public static Score[] expand( Score[] array, int size) {
+        Score[] temp = new Score[size];
+        if( array != null ) {
+            System.arraycopy(array, 0, temp, 0, array.length);
+            for(int j = array.length; j < size; j++)
+                temp[j] = null;
+        }
+        return temp;
+    }
+    public static UserData[] expand( UserData[] array, int size) {
+        UserData[] temp = new UserData[size];
+        if( array != null ) {
+            System.arraycopy(array, 0, temp, 0, array.length);
+            for(int j = array.length; j < size; j++)
+                temp[j] = null;
+        }
+        return temp;
+    }
+    public static void save() {
+        // TODO finish save method
+        SaveData s = SaveData.getInstance();
+        UserData d = UserData.getInstance();
+        if( s.userSaves == null ) {
+            s.userSaves = Main.expand(s.userSaves, 1);
+        }
+        else {
+            s.userSaves = Main.expand(s.userSaves, s.userSaves.length+1);
+        }
+        System.out.println("null check");
+        s.userSaves[s.userSaves.length-1] = d;
+        // TODO update every val of UserData before adding to array
+        Gson gson = new Gson();
+        try {
+            PrintWriter out = new PrintWriter(
+                new FileWriter("saves.txt"));
+            //TODO fix stupid json error
+            out.print(gson.toJson(s.userSaves));
+            out.close();
+        }
+        catch( Exception e ) {
+            System.out.println("Exceptione is ="+e.getMessage());
+        }
     }
 }

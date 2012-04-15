@@ -1,12 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg360;
 
+import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Vector;
+
 /**
- *
- * @author cdbitesky
+ * @author Caleb Morris
  */
 public class loginFrame extends javax.swing.JFrame {
 
@@ -28,21 +31,39 @@ public class loginFrame extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        textUsername = new javax.swing.JTextField();
+        buttonLogin = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
+        buttonCreateNewProfile = new javax.swing.JButton();
+        labelExtra = new javax.swing.JLabel();
+        textPassword = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Username");
 
         jLabel2.setText("Password");
 
-        jButton1.setText("Login");
+        buttonLogin.setText("Login");
+        buttonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLoginActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cancel");
+        buttonCancel.setText("Cancel");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Create New Profile");
+        buttonCreateNewProfile.setText("Create New Profile");
+        buttonCreateNewProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCreateNewProfileActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,37 +75,127 @@ public class loginFrame extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonCreateNewProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textPassword))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelExtra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelExtra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(buttonLogin)
+                    .addComponent(textPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonCreateNewProfile)
+                    .addComponent(buttonCancel))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
+        // TODO fix the error label events
+        UserData d = UserData.getInstance();
+        d.uName = textUsername.getText();
+        String line = "";
+        Gson gson = new Gson();
+        
+        //
+        try {
+            File f = new File("users.txt");
+            if(f.exists()) {
+                BufferedReader reader = 
+                    new BufferedReader( 
+                        new FileReader("users.txt") );
+                line = reader.readLine();
+                //System.out.println("^"+line+"^");
+            }
+            else {
+                UserPW[] t = {new UserPW("cd","cd")};
+                line = gson.toJson(t);
+            }
+        }
+        catch( Exception e ) {
+            System.out.println("Exceptione is ="+e.getMessage());
+        }
+        UserPW[] upwList = gson.fromJson(line, UserPW[].class);
+        for (int i = 0; i < upwList.length; i++) {
+            System.out.println("^"+upwList[i].uName+"^"+upwList[i].uPW+"^");
+            if( d.uName.compareTo(upwList[i].uName) == 0 ) {
+                //Username is correct
+                if( textPassword.getText().compareTo(upwList[i].uPW) == 0 ) {
+                    //PW is correct
+                    this.setVisible(false);
+                    System.out.println("entering new pull");
+                    //TODO fix saves import
+                    // throws error
+                    try {
+                        File f = new File("saves.txt");
+                        if(f.exists()) {
+                            BufferedReader reader = 
+                                new BufferedReader( 
+                                    new FileReader("saves.txt") );
+                            line = reader.readLine();
+                            //System.out.println("^"+line+"^");
+                        }
+                        else {
+                            UserData[] t = {d};
+                            line = gson.toJson(t);
+                        }
+                    }
+                    catch( Exception e ) {
+                        System.out.println("Exceptione is ="+e.getMessage());
+                    }
+                    UserData[] dataList = gson.fromJson(line, UserData[].class);
+                    SaveData s = SaveData.getInstance();
+                    s.userSaves = dataList;
+                    System.out.println("exiting new pull");
+                    // Start timer
+                    int delay = 5000;   // delay for 5 sec.
+                    int period = 1000;  // repeat every sec.
+                    Timer timer = new Timer();
+
+                    timer.scheduleAtFixedRate(new TimerTask() {
+                        public void run() {
+                            System.out.println("test");
+                        }
+                    }, delay, period);
+                    //
+                }
+                else{
+                    //PW Wrong
+                    labelExtra.setText("Wrong PW");
+                }
+            }
+        }
+    }//GEN-LAST:event_buttonLoginActionPerformed
+
+    private void buttonCreateNewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateNewProfileActionPerformed
+        createNewProfileFrame cnpf = new createNewProfileFrame();
+        cnpf.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCreateNewProfileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,12 +239,13 @@ public class loginFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton buttonCancel;
+    private javax.swing.JButton buttonCreateNewProfile;
+    private javax.swing.JButton buttonLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel labelExtra;
+    private javax.swing.JTextField textPassword;
+    private javax.swing.JTextField textUsername;
     // End of variables declaration//GEN-END:variables
 }

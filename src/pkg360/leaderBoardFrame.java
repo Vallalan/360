@@ -4,6 +4,12 @@
  */
 package pkg360;
 
+import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Arrays;
+
 /**
  *
  * @author cdbitesky
@@ -28,39 +34,49 @@ public class leaderBoardFrame extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        labelPlayer1 = new javax.swing.JLabel();
+        labelScore1 = new javax.swing.JLabel();
+        labelPlayer2 = new javax.swing.JLabel();
+        labelScore2 = new javax.swing.JLabel();
+        labelPlayer3 = new javax.swing.JLabel();
+        labelScore3 = new javax.swing.JLabel();
+        labelPlayer4 = new javax.swing.JLabel();
+        labelScore4 = new javax.swing.JLabel();
+        buttonClose = new javax.swing.JButton();
 
         setTitle("Top Scores");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Player:");
 
         jLabel2.setText("Score:");
 
-        jLabel3.setText("Player1");
+        labelPlayer1.setText("Player1");
 
-        jLabel4.setText("jLabel4");
+        labelScore1.setText("Score1");
 
-        jLabel5.setText("Player2");
+        labelPlayer2.setText("Player2");
 
-        jLabel6.setText("jLabel6");
+        labelScore2.setText("Score2");
 
-        jLabel7.setText("Player3");
+        labelPlayer3.setText("Player3");
 
-        jLabel8.setText("jLabel8");
+        labelScore3.setText("Score3");
 
-        jLabel9.setText("Player4");
+        labelPlayer4.setText("Player4");
 
-        jLabel10.setText("jLabel10");
+        labelScore4.setText("Score4");
 
-        jButton1.setText("jButton1");
+        buttonClose.setText("Close");
+        buttonClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCloseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,22 +85,25 @@ public class leaderBoardFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)
+                            .addComponent(labelPlayer1)
+                            .addComponent(labelPlayer2)
+                            .addComponent(labelPlayer3)
+                            .addComponent(labelPlayer4)
                             .addComponent(jLabel1))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelScore4)
+                            .addComponent(labelScore3)
+                            .addComponent(labelScore2)
+                            .addComponent(labelScore1)
+                            .addComponent(jLabel2))
+                        .addGap(0, 7, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonClose)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,27 +114,71 @@ public class leaderBoardFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(labelScore1)
+                    .addComponent(labelPlayer1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(labelPlayer2)
+                    .addComponent(labelScore2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(labelScore3)
+                    .addComponent(labelPlayer3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelScore4)
+                    .addComponent(labelPlayer4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonClose)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCloseActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCloseActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        String line = "";
+        Gson gson = new Gson();
+        
+        try {
+            File f = new File("top_scores.txt");
+            if(f.exists()) {
+                BufferedReader reader = 
+                    new BufferedReader( 
+                        new FileReader("top_scores.txt") );
+                line = reader.readLine();
+                //System.out.println("^"+line+"^");
+            }
+            else {
+                Score[] t = {new Score(0, "cd")};
+                line = gson.toJson(t);
+            }
+        }
+        catch( Exception e ) {
+            System.out.println("Exceptione is ="+e.getMessage());
+        }
+        Score[] scoreList = gson.fromJson(line, Score[].class);
+        if( scoreList.length < 4 ) {
+            int tmp = scoreList.length - 1;
+            Main.expand(scoreList, 4);
+            for (int i = tmp; i < 4; i++) {
+                scoreList[i] = new Score(0, "cd");
+            }
+        }
+        Score[] top5 = new Score[4];
+        Arrays.sort(scoreList);
+        System.arraycopy(scoreList, 0, top5, 0, 4);
+        {
+            labelPlayer1.setText(top5[0].uName); labelScore1.setText(""+top5[0].uScore);
+            labelPlayer2.setText(top5[1].uName); labelScore2.setText(""+top5[1].uScore);
+            labelPlayer3.setText(top5[2].uName); labelScore3.setText(""+top5[2].uScore);
+            labelPlayer4.setText(top5[3].uName); labelScore4.setText(""+top5[3].uScore);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -159,16 +222,16 @@ public class leaderBoardFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonClose;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel labelPlayer1;
+    private javax.swing.JLabel labelPlayer2;
+    private javax.swing.JLabel labelPlayer3;
+    private javax.swing.JLabel labelPlayer4;
+    private javax.swing.JLabel labelScore1;
+    private javax.swing.JLabel labelScore2;
+    private javax.swing.JLabel labelScore3;
+    private javax.swing.JLabel labelScore4;
     // End of variables declaration//GEN-END:variables
 }

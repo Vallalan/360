@@ -4,6 +4,13 @@
  */
 package pkg360;
 
+import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  *
  * @author cdbitesky
@@ -147,7 +154,31 @@ public class playerStatsFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        // TODO import scores, find the top 3, sort by date. post
+        String line = "";
+        Gson gson = new Gson();
+        try {
+            File f = new File("scores.txt");
+            if(f.exists()) {
+                BufferedReader reader = 
+                    new BufferedReader( 
+                        new FileReader("scores.txt") );
+                line = reader.readLine();
+                //System.out.println("^"+line+"^");
+            }
+            else {
+                Score[] t = null;
+                line = gson.toJson(t);
+            }
+            Score[] scoreList = gson.fromJson(line, Score[].class);
+            Arrays.sort(scoreList);
+            if( scoreList != null ) {
+                
+            }
+        }
+        catch( Exception e ) {
+            System.out.println("Exceptione is ="+e.getMessage());
+        }
     }//GEN-LAST:event_formWindowOpened
 
     /**

@@ -154,7 +154,7 @@ public class leaderBoardFrame extends javax.swing.JFrame {
                 //System.out.println("^"+line+"^");
             }
             else {
-                Score[] t = {new Score(0, "cd")};
+                Score[] t = {new Score(0, 0)};
                 line = gson.toJson(t);
             }
         }
@@ -166,17 +166,17 @@ public class leaderBoardFrame extends javax.swing.JFrame {
             int tmp = scoreList.length - 1;
             Main.expand(scoreList, 4);
             for (int i = tmp; i < 4; i++) {
-                scoreList[i] = new Score(0, "cd");
+                scoreList[i] = new Score(0, 0);
             }
         }
         Score[] top5 = new Score[4];
         Arrays.sort(scoreList);
         System.arraycopy(scoreList, 0, top5, 0, 4);
         {
-            labelPlayer1.setText(top5[0].uName); labelScore1.setText(""+top5[0].uScore);
-            labelPlayer2.setText(top5[1].uName); labelScore2.setText(""+top5[1].uScore);
-            labelPlayer3.setText(top5[2].uName); labelScore3.setText(""+top5[2].uScore);
-            labelPlayer4.setText(top5[3].uName); labelScore4.setText(""+top5[3].uScore);
+            labelPlayer1.setText(top5[0].sName); labelScore1.setText(""+top5[0].uScore);
+            labelPlayer2.setText(top5[1].sName); labelScore2.setText(""+top5[1].uScore);
+            labelPlayer3.setText(top5[2].sName); labelScore3.setText(""+top5[2].uScore);
+            labelPlayer4.setText(top5[3].sName); labelScore4.setText(""+top5[3].uScore);
         }
     }//GEN-LAST:event_formWindowOpened
 

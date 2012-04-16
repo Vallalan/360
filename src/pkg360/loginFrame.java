@@ -135,10 +135,6 @@ public class loginFrame extends javax.swing.JFrame {
                 UserPW[] t = {new UserPW("cd","cd")};
                 line = gson.toJson(t);
             }
-        }
-        catch( Exception e ) {
-            System.out.println("Exceptione is ="+e.getMessage());
-        }
         UserPW[] upwList = gson.fromJson(line, UserPW[].class);
         for (int i = 0; i < upwList.length; i++) {
             System.out.println("^"+upwList[i].uName+"^"+upwList[i].uPW+"^");
@@ -151,8 +147,8 @@ public class loginFrame extends javax.swing.JFrame {
                     //TODO fix saves import
                     // throws error
                     try {
-                        File f = new File("saves.txt");
-                        if(f.exists()) {
+                        File fin = new File("saves.txt");
+                        if(fin.exists()) {
                             BufferedReader reader = 
                                 new BufferedReader( 
                                     new FileReader("saves.txt") );
@@ -171,23 +167,16 @@ public class loginFrame extends javax.swing.JFrame {
                     SaveData s = SaveData.getInstance();
                     s.userSaves = dataList;
                     System.out.println("exiting new pull");
-                    // Start timer
-                    int delay = 5000;   // delay for 5 sec.
-                    int period = 1000;  // repeat every sec.
-                    Timer timer = new Timer();
-
-                    timer.scheduleAtFixedRate(new TimerTask() {
-                        public void run() {
-                            System.out.println("test");
-                        }
-                    }, delay, period);
-                    //
                 }
                 else{
                     //PW Wrong
                     labelExtra.setText("Wrong PW");
                 }
             }
+        }
+        }
+        catch( Exception e ) {
+            System.out.println("Exceptione is ="+e.getMessage());
         }
     }//GEN-LAST:event_buttonLoginActionPerformed
 

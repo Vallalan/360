@@ -43,7 +43,7 @@ public class InputTest {
 			//read in all words and enter them as individual string elements in the vector v
             while(line!=null) {
                 v.addAll(Arrays.asList((line.split(" "))));
-                System.out.println(line);
+                //System.out.println(line);
                 line = reader.readLine();
             }
         }
@@ -61,7 +61,7 @@ public class InputTest {
 			//spots a start of comment indicator
             if( tmp.indexOf("/*") > -1 && start == -1 ) {
                 start = i;
-                System.out.println("\t/* found." + start);
+                //System.out.println("\t/* found." + start);
 				ClearComment(v, start);								
                 start = -1; end = -1;
             }
@@ -76,7 +76,7 @@ public class InputTest {
 		clueList = new Vector<String>();
 		wordList = new Vector<String>();
 
-        System.out.println("=========================");
+        //System.out.println("=========================");
 
 		//begin iterating through the array to gather the data
         for( int i = 0; i < v.size(); ++i ) {
@@ -85,7 +85,7 @@ public class InputTest {
 			//to get the size of the board
 			if( isParsableToInt(tmp) && sizeOfBoard == -1) {
 				sizeOfBoard = Integer.parseInt(tmp);
-				System.out.println(sizeOfBoard);
+				//System.out.println(sizeOfBoard);
 
 			//to add a clue to the list
 			} else if( tmp.indexOf('\"') > -1) {
@@ -110,7 +110,7 @@ public class InputTest {
 					tmp = v.elementAt(++i);
 
 				}
-				System.out.println(clue);
+				//System.out.println(clue);
 				clueList.add(clue);
 
 			//Final case - words, make certain we don't include blank lines
@@ -128,7 +128,7 @@ public class InputTest {
 										
 				}
 				
-				System.out.println(word);
+				//System.out.println(word);
 				wordList.add(word);
 			}
 
@@ -139,22 +139,22 @@ public class InputTest {
 		wordList.remove("##");
 
 		finalList = MergeLists(clueList, wordList);
-		System.out.println(finalList);
+		//System.out.println(finalList);
 		//test statements for getter methods
-		System.out.println(getHint(finalList.elementAt(0)));
-		System.out.println(getWord(finalList.elementAt(0)));
-		System.out.println(xPos(finalList.elementAt(0)) + " " + yPos(finalList.elementAt(0)));
+		//System.out.println(getHint(finalList.elementAt(0)));
+		//System.out.println(getWord(finalList.elementAt(0)));
+		//System.out.println(xPos(finalList.elementAt(0)) + " " + yPos(finalList.elementAt(0)));
 		
-		System.out.println(getLength(finalList.elementAt(0)));
+		//System.out.println(getLength(finalList.elementAt(0)));
 		
 		if(getOrientation(finalList.elementAt(0)) == Hint.Orientation.ACROSS) {
-			System.out.println("Across is good");
+			//System.out.println("Across is good");
 		}
 		if(getOrientation(finalList.elementAt(5)) == Hint.Orientation.DOWN) {
-			System.out.println("Down is good");
+			//System.out.println("Down is good");
 		}
 
-        System.out.println("=========================");
+        //System.out.println("=========================");
     }
 
 	public Vector<Hint> getHints() {
@@ -227,7 +227,7 @@ public class InputTest {
 	//returns the y position of the word or clue
 	public int yPos(String hint) {
 		int pos = Integer.parseInt(hint.split("/")[2]);
-		return (int)Math.IEEEremainder(pos, sizeOfBoard);
+                return pos%sizeOfBoard;
 	}
 
 	//returns the length of the word or clue
@@ -282,14 +282,14 @@ public class InputTest {
 				int end = z;
 				if( tmp.endsWith("*/") ) {
 					v.set(z, v.elementAt(z).substring(0, v.elementAt(z).length()-2));
-					System.out.println("\tif");
-					System.out.println(v.subList(start,end).toString());
+					//System.out.println("\tif");
+					//System.out.println(v.subList(start,end).toString());
 					v.subList(start, end+1).clear();				
 					return;
 				}
 				else {
-					System.out.println("\telse");
-					System.out.println(v.subList(start, end+1).toString());
+					//System.out.println("\telse");
+					//System.out.println(v.subList(start, end+1).toString());
 					v.subList(start, end+1).clear();
 					return;
 				}

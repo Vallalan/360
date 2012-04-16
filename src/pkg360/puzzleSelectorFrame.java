@@ -148,7 +148,9 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
         UserData d = UserData.getInstance();
         SaveData s = SaveData.getInstance();
         Transfer t = Transfer.getInstance();
-        
+        if( listDifficulty.getSelectedIndex() != -1 &&
+            listNumbPlayers.getSelectedIndex() != -1 &&
+            listSelect.getSelectedIndex() != -1) {
         if( listSelect.getSelectedIndex() == 0 ) {
             d.uDifficulty = listDifficulty.getSelectedIndex()+1;
             d.uNumPlayers = listNumbPlayers.getSelectedIndex()+1;
@@ -232,6 +234,9 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
             public void run() {
                 t.timerContain.setText(""+(++d.uBoard_.time));
                 System.out.println(d.uBoard_.time);
+                if( d.uBoard_.bScore != null ) {
+                    cancel();
+                }
             }
         }, delay, period);
         //
@@ -241,6 +246,7 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
         //catch(Exception e) {
         //    System.out.println("Exceptione is ="+e.getMessage());
         //}
+    }
     }//GEN-LAST:event_buttonStartGameActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

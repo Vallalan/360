@@ -7,16 +7,17 @@ import java.util.Date;
  */
 public class Score implements Comparable<Score>{
     public int uScore;
-    public String uName;
     public Date date;
     public int endtime;
+    public String sName;
     
-    public Score( int s, String n ) {
-        uScore = s;
-        uName = n;
+    public Score( int score, int endtime ) {
+        UserData d = UserData.getInstance();
+        uScore = score;
         date = new Date();
+        this.endtime = endtime;
+        sName = d.uName;
         //TODO finish score
-        //endtime = ;
     }
     
     @Override

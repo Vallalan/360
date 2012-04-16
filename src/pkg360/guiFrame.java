@@ -4048,7 +4048,14 @@ public class guiFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveGameActionPerformed
-        Main.save();
+        UserData d = UserData.getInstance();
+        Transfer t = Transfer.getInstance();
+        if( d.uName != null ) {
+            Main.save();
+        }
+        else {
+            t.tLF.toFront();
+        }
     }//GEN-LAST:event_buttonSaveGameActionPerformed
 
     private void buttonQUITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQUITActionPerformed
@@ -4061,8 +4068,15 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonViewStatsActionPerformed
 
     private void buttonNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewGameActionPerformed
-        puzzleSelectorFrame puzzleSelector = new puzzleSelectorFrame();
-        puzzleSelector.setVisible(true);
+        UserData d = UserData.getInstance();
+        Transfer t = Transfer.getInstance();
+        if( d.uName != null ) {
+            puzzleSelectorFrame puzzleSelector = new puzzleSelectorFrame();
+            puzzleSelector.setVisible(true);
+        }
+        else {
+            t.tLF.toFront();
+        }
     }//GEN-LAST:event_buttonNewGameActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -4226,6 +4240,7 @@ public class guiFrame extends javax.swing.JFrame {
             jPanel222, jPanel223, jPanel224, jPanel225, jPanel226}
         };
         UserData d = UserData.getInstance();
+        Transfer t = Transfer.getInstance();
         Board b_ = new Board(my_jlabelHolder, listHorizontal, listVertical,
                 textScore, textTime);
         b_.init(panelHolder);
@@ -4233,22 +4248,36 @@ public class guiFrame extends javax.swing.JFrame {
         textScore.setEditable(false);
         textTime.setEditable(false);
         loginFrame lf = new loginFrame();
+        t.tLF = lf;
         lf.setVisible(true);
         //this.setFocusableWindowState(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
         UserData d = UserData.getInstance();
-        if( d.uBoard_.bScore == null ) {
-            // TODO update score, init and then change the label
+        Transfer t = Transfer.getInstance();
+        if( d.uName != null ) {
+            if( d.uBoard_.bScore == null ) {
+                int tmp = 0;
+                for (int i = 0; i < d.uHints.length; i++) {
+                    if( d.uHints[i].guess.compareTo(d.uHints[i].answer) == 0 ) {
+                        ++tmp;
+                    }
+                }
+                d.uBoard_.bScore = new Score(tmp, d.uBoard_.time);
+            }
+            textScore.setText(""+d.uBoard_.bScore.uScore);
         }
         else {
-            textScore.setText(""+d.uBoard_.bScore);
+            t.tLF.toFront();
         }
     }//GEN-LAST:event_buttonScoreGameActionPerformed
 
     private void buttonQuitAndSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQuitAndSaveActionPerformed
-        Main.save();
+        UserData d = UserData.getInstance();
+        if( d.uName != null ) {
+            Main.save();
+        }
         System.exit(0);
     }//GEN-LAST:event_buttonQuitAndSaveActionPerformed
 

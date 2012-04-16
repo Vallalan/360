@@ -1,5 +1,6 @@
 package pkg360;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -20,6 +21,8 @@ public class Transfer {
     public JLabel[][] num;
     public JLabel[][] let;
     public JPanel[][] contain;
+    
+    public loginFrame tLF;
     
     protected Transfer() {
       // Exists only to defeat instantiation.

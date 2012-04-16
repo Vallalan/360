@@ -219,15 +219,15 @@ public class InputTest {
 
 
 	//returns the x position of the word or clue
-	public int xPos(String hint) {
+	public int yPos(String hint) {
 		int pos = Integer.parseInt(hint.split("/")[2]);
 		return (int)Math.floor(pos/sizeOfBoard);
 	}
 
 	//returns the y position of the word or clue
-	public int yPos(String hint) {
+	public int xPos(String hint) {
 		int pos = Integer.parseInt(hint.split("/")[2]);
-                return pos%sizeOfBoard;
+                return (pos-1)%sizeOfBoard;
 	}
 
 	//returns the length of the word or clue

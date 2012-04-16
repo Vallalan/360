@@ -43,6 +43,7 @@ public class Main {
     }
     public static void save() {
         // TODO finish save method
+        // TODO check for duplicate before saving
         SaveData s = SaveData.getInstance();
         UserData d = UserData.getInstance();
         Transfer t = Transfer.getInstance();
@@ -60,7 +61,7 @@ public class Main {
             PrintWriter out = new PrintWriter(
                 new FileWriter("saves.txt"));
             //TODO test
-            System.out.println("before json");
+            //System.out.println("before json");
             String tmp = gsonSave.toJson(s.userSaves);
             //System.out.println("after json");
             out.print(tmp);

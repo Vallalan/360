@@ -13,15 +13,6 @@ public class Piece {
     //public JPanel contain;
     public int numVal;
     public char letVal;
-    /*
-    public Piece() {
-        numVal = -1;
-        letVal = '.';
-        num.setBackground(new Color(0,0,0));
-        let.setBackground(new Color(0,0,0));
-    }
-    * 
-    */
     public Piece() {
         //num = n;
         //let = l;

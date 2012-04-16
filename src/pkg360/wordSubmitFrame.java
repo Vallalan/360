@@ -105,9 +105,15 @@ public class wordSubmitFrame extends javax.swing.JFrame {
         Transfer t = Transfer.getInstance();
         UserData d = UserData.getInstance();
         Hint tmp = t.current;
-        String word = textAnswer.getText().substring(0, tmp.length);
+        String word;
+        int realLength = (tmp.length < textAnswer.getText().length())?tmp.length:textAnswer.getText().length();
+        if( tmp.length < textAnswer.getText().length() ) {
+            word = textAnswer.getText().substring(0, tmp.length+1);
+        }
+        else {
+            word = textAnswer.getText();
+        }
         if( d.uHints != null ) {
-            // Find the hint that we are submitting
             int i;
             for ( i = 0; i < d.uHints.length; i++) {
                 if( d.uHints[i].compareTo(tmp) == 0 ) {
@@ -116,27 +122,36 @@ public class wordSubmitFrame extends javax.swing.JFrame {
                 }
             }
             if( d.uHints[i].ori == Hint.Orientation.ACROSS ) {
-                for (int j = d.uHints[i].startX; j < d.uHints[i].length; j++) {
-                    t.let[d.uHints[i].startY][j].setText(word.substring(j,j+1));
-                    d.uBoard_.b[d.uHints[i].startY][j].letVal = word.charAt(j);
+                for (int j = d.uHints[i].startX; j < realLength+d.uHints[i].startX; j++) {
+                    t.let[d.uHints[i].startY][j].setText(Character.toString(word.charAt(j-d.uHints[i].startX)));
+                    d.uBoard_.b[d.uHints[i].startY][j].letVal = word.charAt(j-d.uHints[i].startX);
                 }
             }
             else {
                 //Down
-                for (int j = d.uHints[i].startX; j < d.uHints[i].length; j++) {
-                    t.let[j][d.uHints[i].startX].setText(word.substring(j,j+1));
-                    d.uBoard_.b[j][d.uHints[i].startX].letVal = word.charAt(j);
+                System.out.println("starx: " + d.uHints[i].startX + " starty: " + d.uHints[i].startY);
+                for (int j = 0; j < realLength; j++) {
+                    System.out.println("j: " + j);
+                    t.let[j+d.uHints[i].startY][d.uHints[i].startX].setText(Character.toString(word.charAt(j)));
+                    d.uBoard_.b[j+d.uHints[i].startY][d.uHints[i].startX].letVal = word.charAt(j);
                 }
             }
         }
         else {
             System.out.println("uHints is null. find the fuck-up");
         }
+        this.setVisible(false);
     }//GEN-LAST:event_buttonSubmitActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // Write the hint to the given label
-        
+        Transfer t = Transfer.getInstance();
+        if( t.current.hint.length() > 24 ){
+            labelHint.setText(t.current.hint.substring(0, 24));
+        }
+        else {
+            labelHint.setText(t.current.hint);
+        }
     }//GEN-LAST:event_formWindowOpened
 
     /**

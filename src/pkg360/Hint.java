@@ -28,24 +28,24 @@ public class Hint implements Comparable<Hint> {
     @Override
     public int compareTo(Hint h) {
         if( this.startX > h.startX ) {
-            return 1;
+            return -1;
         }
         else if( this.startX < h.startX ) {
-            return -1;
+            return 1;
         }
         else {
             if( this.startY > h.startY ) {
-                return 1;
+                return -1;
             }
             else if( this.startY < h.startY ) {
-                return -1;
+                return 1;
             }
             else {
                 if( this.ori == Hint.Orientation.ACROSS && h.ori == Hint.Orientation.DOWN) {
-                        return 1;
+                        return -1;
                 }
                 else if( this.ori == Hint.Orientation.DOWN && h.ori == Hint.Orientation.ACROSS ) {
-                        return -1;
+                        return 1;
                 }
                 else {
                     if( this.answer.equals(h.answer) && this.hint.equals(h.hint)
@@ -53,7 +53,7 @@ public class Hint implements Comparable<Hint> {
                             return 0;
                     }
                     else {
-                        return -1;
+                        return 1;
                     }
                 }
             }

@@ -3,7 +3,7 @@ package pkg360;
 /**
  * @author Caleb Morris
  */
-public class Hint {
+public class Hint implements Comparable<Hint> {
     public enum Orientation {
         ACROSS, DOWN;
     }
@@ -23,5 +23,15 @@ public class Hint {
         this.length = length;
         this.ori = ori;
         this.guess = "";
+    }
+    
+    @Override
+    public int compareTo(Hint h) {
+        if( this.answer.equals(h.answer) && this.hint.equals(h.hint) && 
+            this.startX == h.startX && this.startY == h.startY &&
+            this.length == h.length && this.ori == h.ori)
+            return 0;
+        else
+            return -1;
     }
 }

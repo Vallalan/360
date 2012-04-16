@@ -4256,7 +4256,6 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
-        //TODO save to file scores.txt
         UserData d = UserData.getInstance();
         Transfer t = Transfer.getInstance();
         Gson gson = new Gson();
@@ -4304,7 +4303,8 @@ public class guiFrame extends javax.swing.JFrame {
                     }
                 }
                 else {
-                    d.uBoard_.bScore = new Score(-1, -1);
+                    playerStatsFrame psf = new playerStatsFrame();
+                    psf.setVisible(true);
                 }
             }
             textScore.setText(""+d.uBoard_.bScore.uScore);

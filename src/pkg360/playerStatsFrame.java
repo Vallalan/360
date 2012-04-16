@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Array;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 /**
@@ -63,24 +65,6 @@ public class playerStatsFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Completion Time:");
 
-        labelTime1.setText("3:25");
-
-        labelScore1.setText("225");
-
-        labelDate1.setText("12-02-11 10:51");
-
-        labelTime2.setText("4:21");
-
-        labelScore2.setText("150");
-
-        labelDate2.setText("01-06-12 02:34");
-
-        labelTime3.setText("2:20");
-
-        labelScore3.setText("421");
-
-        labelDate3.setText("01-17-12 16:24");
-
         lNumGamesl.setText("Total Games Played: ");
 
         lTopScorel.setText("Top Score:");
@@ -97,31 +81,38 @@ public class playerStatsFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelDate1)
-                            .addComponent(jLabel1)
-                            .addComponent(labelDate2)
-                            .addComponent(labelDate3))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(labelScore1)
-                            .addComponent(labelScore2)
-                            .addComponent(labelScore3))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTime1)
-                            .addComponent(jLabel3)
-                            .addComponent(labelTime2)
-                            .addComponent(labelTime3)))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(lTopScorel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(labelTopScore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(lNumGamesl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelTotalGames, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelTotalGames, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1)
+                                .addComponent(labelDate2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelDate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelDate3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelScore1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelScore2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelScore3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelTime1)
+                                    .addComponent(labelTime2)
+                                    .addComponent(labelTime3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -133,34 +124,35 @@ public class playerStatsFrame extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelDate1)
-                    .addComponent(labelScore1)
-                    .addComponent(labelTime1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                    .addComponent(labelScore1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelTime1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelDate2)
-                    .addComponent(labelScore2)
-                    .addComponent(labelTime2))
+                    .addComponent(labelDate2, javax.swing.GroupLayout.DEFAULT_SIZE, 7, Short.MAX_VALUE)
+                    .addComponent(labelScore2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelTime2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelDate3)
-                    .addComponent(labelScore3)
-                    .addComponent(labelTime3))
+                    .addComponent(labelTime3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelDate3, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                    .addComponent(labelScore3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lTopScorel)
                     .addComponent(lNumGamesl)
                     .addComponent(labelTopScore)
                     .addComponent(labelTotalGames))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO import scores, find the top 3, sort by date. post
+        // TODO LOW PRIORITY
+        // BUG: infinite scoreboxs
         String line = "";
         Gson gson = new Gson();
         try {
@@ -178,6 +170,10 @@ public class playerStatsFrame extends javax.swing.JFrame {
             }
             Score[] scoreList = gson.fromJson(line, Score[].class);
             if( scoreList != null ) {
+                Format formatter = new SimpleDateFormat("MM/dd/yy HH:mm");
+                //String s = formatter.format(date);
+                //System.out.println(s);
+                
                 Score top = scoreList[0];
                 for (int i = 0; i < scoreList.length; i++) {
                     System.out.println( scoreList[i].sName + " "+ scoreList[i].uScore );
@@ -186,10 +182,36 @@ public class playerStatsFrame extends javax.swing.JFrame {
                 }
                 labelTotalGames.setText(""+scoreList.length);
                 labelTopScore.setText(""+top.uScore);
+                if( scoreList.length >= 3 ) {
+                    labelDate1.setText(formatter.format(scoreList[scoreList.length-3].date));
+                    labelScore1.setText(""+scoreList[scoreList.length-3].uScore);
+                    labelTime1.setText(""+scoreList[scoreList.length-3].endtime);
+                    labelDate2.setText(formatter.format(scoreList[scoreList.length-2].date));
+                    labelScore2.setText(""+scoreList[scoreList.length-2].uScore);
+                    labelTime2.setText(""+scoreList[scoreList.length-2].endtime);
+                    labelDate3.setText(formatter.format(scoreList[scoreList.length-1].date));
+                    labelScore3.setText(""+scoreList[scoreList.length-1].uScore);
+                    labelTime3.setText(""+scoreList[scoreList.length-1].endtime);
+                }
+                else if( scoreList.length == 2 ) {
+                    labelDate1.setText(formatter.format(scoreList[0].date));
+                    labelScore1.setText(""+scoreList[0].uScore);
+                    labelTime1.setText(""+scoreList[0].endtime);
+                    labelDate2.setText(formatter.format(scoreList[1].date));
+                    labelScore2.setText(""+scoreList[1].uScore);
+                    labelTime1.setText(""+scoreList[1].endtime);
+                }
+                else {
+                    labelDate1.setText(formatter.format(scoreList[0].date));
+                    labelScore1.setText(""+scoreList[0].uScore);
+                    labelTime1.setText(""+scoreList[0].endtime);
+                }
             }
             else{
                 System.out.println("No scores.");
                 labelScore2.setText("You have not played any games.");
+                labelTopScore.setText(""+0);
+                labelTotalGames.setText(""+0);
             }
         }
         catch( Exception e ) {

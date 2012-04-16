@@ -119,7 +119,6 @@ public class loginFrame extends javax.swing.JFrame {
         d.uName = textUsername.getText();
         String line = "";
         Gson gson = new Gson();
-        
         //
         try {
             File f = new File("users.txt");
@@ -143,7 +142,6 @@ public class loginFrame extends javax.swing.JFrame {
                     //PW is correct
                     this.setVisible(false);
                     System.out.println("entering new pull");
-                    //TODO fix saves import
                     try {
                         File fin = new File("saves.txt");
                         if(fin.exists()) {
@@ -172,6 +170,7 @@ public class loginFrame extends javax.swing.JFrame {
                 }
             }
         }
+        labelExtra.setText("New Name");
         }
         catch( Exception e ) {
             System.out.println("Exceptione is ="+e.getMessage());

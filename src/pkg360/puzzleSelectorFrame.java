@@ -148,80 +148,137 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
         UserData d = UserData.getInstance();
         SaveData s = SaveData.getInstance();
         Transfer t = Transfer.getInstance();
-        if( listDifficulty.getSelectedIndex() != -1 &&
-            listNumbPlayers.getSelectedIndex() != -1 &&
-            listSelect.getSelectedIndex() != -1) {
+        
         if( listSelect.getSelectedIndex() == 0 ) {
-            d.uDifficulty = listDifficulty.getSelectedIndex()+1;
-            d.uNumPlayers = listNumbPlayers.getSelectedIndex()+1;
-            InputTest it = new InputTest();
-            it.main();
-            Vector<Hint> v = it.getHints();
-            if( v != null ) {
-                d.uHints = (Hint[])it.getHints().toArray(new Hint[it.getHints().size()]);
-            }
-            else {
-                System.out.println("getHints is returning null");
-            }
-            d.uBoardSize = it.getBoardSize();
-            d.uBoard_.time = 0;        
-            d.uSaveName = ""; //TODO fix savename to be save<#(saves)+1>
-            
-            int count = 0;
-            for (int i = 0; i < s.userSaves.length; i++) {
-                if( s.userSaves[i].uName == d.uName ) {
-                    count++;
-                }
-            }
-            d.uSaveName = "save"+(count + 1);
-            
-            Arrays.sort(d.uHints);
-            int i=0;
-            count = 0;
-            while( i < d.uHints.length ) {
-                if( d.uHints[i].number == 0 ) {
-                    count++;
-                    d.uHints[i].number = (count);
-                }
-                if( i < d.uHints.length - 1 ) {
-                    if( d.uHints[i+1].startX == d.uHints[i].startX &&
-                        d.uHints[i+1].startY == d.uHints[i].startY) {
-                            d.uHints[i+1].number = (count);
-                    }
-                }
-                //System.out.println(d.uHints[i].hint+" "+d.uHints[i].number);
-                i++;
-            }
-            DefaultListModel listHorizontal = new DefaultListModel();
-            DefaultListModel listVertical = new DefaultListModel();
-            for (int j = 0; j < d.uHints.length; j++) {
-                //System.out.println("j: " + j + " length: " + d.uHints[j].length);
-                //System.out.println("x: " + d.uHints[j].startX + " "+"y: "+d.uHints[j].startY);
-                //System.out.println("word: "+d.uHints[j].answer);
-                d.uBoard_.b [d.uHints[j].startY][d.uHints[j].startX].numVal = d.uHints[j].number;
-                t.num       [d.uHints[j].startY][d.uHints[j].startX].setText(""+d.uHints[j].number);
-                t.contain   [d.uHints[j].startY][d.uHints[j].startX].setBackground(new Color(255,255,255));
-                //TODO fix color in write spots
-                if( d.uHints[j].ori == Hint.Orientation.ACROSS ) {
-                    for (int k = 0; k < d.uHints[j].length; k++) {
-                        t.contain[d.uHints[j].startY][k+d.uHints[j].startX].setBackground(new Color(255,255,255));
-                    }
-                    listHorizontal.addElement(d.uHints[j].hint);
+            if( listDifficulty.getSelectedIndex() != -1 &&
+                    listNumbPlayers.getSelectedIndex() != -1 &&
+                    listSelect.getSelectedIndex() != -1) {
+                d.uDifficulty = listDifficulty.getSelectedIndex()+1;
+                d.uNumPlayers = listNumbPlayers.getSelectedIndex()+1;
+                InputTest it = new InputTest();
+                it.main();
+                Vector<Hint> v = it.getHints();
+                if( v != null ) {
+                    d.uHints = (Hint[])it.getHints().toArray(new Hint[it.getHints().size()]);
                 }
                 else {
-                    for (int k = 0; k < d.uHints[j].length; k++) {
-                        t.contain[k+d.uHints[j].startY][d.uHints[j].startX].setBackground(new Color(255,255,255));
-                    }
-                    listVertical.addElement(d.uHints[j].hint);
+                    System.out.println("getHints is returning null");
                 }
+                d.uBoardSize = it.getBoardSize();
+                d.uBoard_.time = 0;        
+                d.uSaveName = "";
+
+                int count = 0;
+                System.out.println(s.userSaves);
+                if( s.userSaves != null ) {
+                    for (int i = 0; i < s.userSaves.length; i++) {
+                        if( s.userSaves[i].uName == d.uName ) {
+                            count++;
+                        }
+                    }
+                }
+                d.uSaveName = "save"+(count + 1);
+
+                Arrays.sort(d.uHints);
+                int i=0;
+                count = 0;
+                while( i < d.uHints.length ) {
+                    if( d.uHints[i].number == 0 ) {
+                        count++;
+                        d.uHints[i].number = (count);
+                    }
+                    if( i < d.uHints.length - 1 ) {
+                        if( d.uHints[i+1].startX == d.uHints[i].startX &&
+                            d.uHints[i+1].startY == d.uHints[i].startY) {
+                                d.uHints[i+1].number = (count);
+                        }
+                    }
+                    //System.out.println(d.uHints[i].hint+" "+d.uHints[i].number);
+                    i++;
+                }
+                DefaultListModel listHorizontal = new DefaultListModel();
+                DefaultListModel listVertical = new DefaultListModel();
+                for (int j = 0; j < d.uHints.length; j++) {
+                    d.uBoard_.b [d.uHints[j].startY][d.uHints[j].startX].numVal = d.uHints[j].number;
+                    t.num       [d.uHints[j].startY][d.uHints[j].startX].setText(""+d.uHints[j].number);
+                    t.contain   [d.uHints[j].startY][d.uHints[j].startX].setBackground(new Color(255,255,255));
+                    if( d.uHints[j].ori == Hint.Orientation.ACROSS ) {
+                        for (int k = 0; k < d.uHints[j].length; k++) {
+                            t.contain[d.uHints[j].startY][k+d.uHints[j].startX].setBackground(new Color(255,255,255));
+                        }
+                        listHorizontal.addElement(d.uHints[j].hint);
+                    }
+                    else {
+                        for (int k = 0; k < d.uHints[j].length; k++) {
+                            t.contain[k+d.uHints[j].startY][d.uHints[j].startX].setBackground(new Color(255,255,255));
+                        }
+                        listVertical.addElement(d.uHints[j].hint);
+                    }
+                }
+                t.horizontalContain.setModel(listHorizontal);
+                t.verticalContain.setModel(listVertical);
             }
-            t.horizontalContain.setModel(listHorizontal);
-            t.verticalContain.setModel(listVertical);
         }
         else {
-            //TODO load saves and set d to the saveState
+            if( listSelect.getSelectedIndex() != -1 ) {
+                String lookfor = listSelect.getSelectedValue().toString();
+                System.out.println(s.userSaves.length);
+                System.out.println(s.userSaves[0].uSaveName);
+                int i;
+                for ( i = 0; i < s.userSaves.length; i++) {
+                    if( s.userSaves[i].uSaveName != null ) {
+                        if( lookfor.compareTo(s.userSaves[i].uSaveName) == 0 ) {
+                            break;
+                        }
+                    }
+                }
+                d.uBoard_ =     s.userSaves[i].uBoard_;
+                d.uBoardSize =  s.userSaves[i].uBoardSize;
+                d.uSaveName =   lookfor;
+                d.uHints =      s.userSaves[i].uHints;
+                d.uDifficulty = s.userSaves[i].uDifficulty; // Easy, Medium, Hard: 1,2,3
+                d.uNumPlayers = s.userSaves[i].uNumPlayers;
+
+                for (int j = 0; j < 15; j++) {
+                    for (int k = 0; k < 15; k++) {
+                        if( d.uBoard_.b[j][k].letVal != '.' ) {
+                            t.let[j][k].setText(Character.toString(d.uBoard_.b[j][k].letVal));
+                        }
+                        else {
+                            t.let[j][k].setText("");
+                        }
+                        if( d.uBoard_.b[j][k].numVal != -1 ) {
+                            t.num[j][k].setText(""+d.uBoard_.b[j][k].numVal);
+                        }
+                        else {
+                            t.num[j][k].setText("");
+                        }
+                    }
+                }
+                DefaultListModel listHorizontal = new DefaultListModel();
+                DefaultListModel listVertical = new DefaultListModel();
+                for (int j = 0; j < d.uHints.length; j++) {
+                    d.uBoard_.b [d.uHints[j].startY][d.uHints[j].startX].numVal = d.uHints[j].number;
+                    t.num       [d.uHints[j].startY][d.uHints[j].startX].setText(""+d.uHints[j].number);
+                    t.contain   [d.uHints[j].startY][d.uHints[j].startX].setBackground(new Color(255,255,255));
+                    if( d.uHints[j].ori == Hint.Orientation.ACROSS ) {
+                        for (int k = 0; k < d.uHints[j].length; k++) {
+                            t.contain[d.uHints[j].startY][k+d.uHints[j].startX].setBackground(new Color(255,255,255));
+                        }
+                        listHorizontal.addElement(d.uHints[j].hint);
+                    }
+                    else {
+                        for (int k = 0; k < d.uHints[j].length; k++) {
+                            t.contain[k+d.uHints[j].startY][d.uHints[j].startX].setBackground(new Color(255,255,255));
+                        }
+                        listVertical.addElement(d.uHints[j].hint);
+                    }
+                }
+                t.horizontalContain.setModel(listHorizontal);
+                t.verticalContain.setModel(listVertical);
+            }
         }
-        //TODO fix timer
+            
         // Start timer
         int delay = 1000;   // delay for 5 sec.
         int period = 1000;  // repeat every sec.
@@ -246,19 +303,19 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
         //catch(Exception e) {
         //    System.out.println("Exceptione is ="+e.getMessage());
         //}
-    }
     }//GEN-LAST:event_buttonStartGameActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         UserData d = UserData.getInstance();
         SaveData s = SaveData.getInstance();
         Vector<UserData> v = new Vector<UserData>();
-        
-        //System.out.println("fk");
-        //TODO finish SaveData Import
+        //TODO low priority
+        // Bug: user.b accessing user.cd saves
         if( s.userSaves != null ) {
+            System.out.println("reading old saves");
             for (int i = 0; i < s.userSaves.length; i++) {
-                if( s.userSaves[i].uName == d.uName ) {
+                if( s.userSaves[i].uName.compareTo(d.uName) == 0 ) {
+                    System.out.println("currently in "+d.uName);
                     v.add(s.userSaves[i]);
                 }
             }

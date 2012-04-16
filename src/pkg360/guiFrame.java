@@ -1,5 +1,7 @@
 package pkg360;
 
+import com.google.gson.Gson;
+import java.io.*;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 /**
@@ -4254,17 +4256,56 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
+        //TODO save to file scores.txt
         UserData d = UserData.getInstance();
         Transfer t = Transfer.getInstance();
+        Gson gson = new Gson();
+        String line = "";
         if( d.uName != null ) {
             if( d.uBoard_.bScore == null ) {
                 int tmp = 0;
-                for (int i = 0; i < d.uHints.length; i++) {
-                    if( d.uHints[i].guess.compareTo(d.uHints[i].answer) == 0 ) {
-                        ++tmp;
+                if( d.uHints != null ) {
+                    for (int i = 0; i < d.uHints.length; i++) {
+                        if( d.uHints[i].guess.compareTo(d.uHints[i].answer) == 0 ) {
+                            ++tmp;
+                        }
+                    }
+                    d.uBoard_.bScore = new Score(tmp, d.uBoard_.time);
+                    
+                    try {
+                        File f = new File("scores.txt");
+                        if(f.exists()) {
+                            BufferedReader reader = 
+                                new BufferedReader( 
+                                    new FileReader("scores.txt") );
+                            line = reader.readLine();
+                            //System.out.println("^"+line+"^");
+                        }
+                        else {
+                            Score[] tmpScore = {d.uBoard_.bScore};
+                            line = gson.toJson(tmpScore);
+                        }
+                        Score[] scoreList = gson.fromJson(line, Score[].class);
+                        if( !scoreList[0].equals(d.uBoard_.bScore) ) {
+                            Main.expand(scoreList, scoreList.length+1);
+                            scoreList[scoreList.length-1] = d.uBoard_.bScore;
+                        }
+                        
+                        PrintWriter out = new PrintWriter(
+                            new FileWriter("scores.txt"));
+                        out.print( gson.toJson(scoreList) );
+                        out.close();
+                        
+                        playerStatsFrame psf = new playerStatsFrame();
+                        psf.setVisible(true);
+                    }
+                    catch(Exception e) {
+                        System.out.println("Exceptione is ="+e.getMessage());
                     }
                 }
-                d.uBoard_.bScore = new Score(tmp, d.uBoard_.time);
+                else {
+                    d.uBoard_.bScore = new Score(-1, -1);
+                }
             }
             textScore.setText(""+d.uBoard_.bScore.uScore);
         }

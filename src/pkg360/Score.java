@@ -17,7 +17,6 @@ public class Score implements Comparable<Score>{
         date = new Date();
         this.endtime = endtime;
         sName = d.uName;
-        //TODO finish score
     }
     
     @Override

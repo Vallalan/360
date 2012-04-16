@@ -1,21 +1,21 @@
 package pkg360;
+
+import java.util.Date;
+
 /**
  * @author Caleb Morris
  */
 public class Score implements Comparable<Score>{
     public int uScore;
     public String uName;
-    public int date;
-    public int time;
+    public Date date;
     public int endtime;
     
     public Score( int s, String n ) {
         uScore = s;
         uName = n;
-        
+        date = new Date();
         //TODO finish score
-        //date = 
-        //time = 
         //endtime = ;
     }
     

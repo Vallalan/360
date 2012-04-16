@@ -115,7 +115,6 @@ public class loginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        // TODO fix the error label events
         UserData d = UserData.getInstance();
         d.uName = textUsername.getText();
         String line = "";
@@ -145,7 +144,6 @@ public class loginFrame extends javax.swing.JFrame {
                     this.setVisible(false);
                     System.out.println("entering new pull");
                     //TODO fix saves import
-                    // throws error
                     try {
                         File fin = new File("saves.txt");
                         if(fin.exists()) {

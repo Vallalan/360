@@ -10,7 +10,7 @@ import javax.swing.JTextField;
  */
 public class Board {
     public Piece[][] b;
-    public int uScore;
+    public Score bScore;
     public int time;
     
     public Board() {
@@ -24,7 +24,7 @@ public class Board {
         b = new Piece[15][15];
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 15; j++) {
-                //b[i][j] = new Piece( j_[i][j][0], j_[i][j][1]);
+                b[i][j] = new Piece();
                 t.let[i][j] = j_[i][j][0];
                 t.num[i][j] = j_[i][j][1];
             }

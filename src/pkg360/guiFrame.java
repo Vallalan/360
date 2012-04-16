@@ -12,173 +12,6 @@ public class guiFrame extends javax.swing.JFrame {
      */
     public guiFrame() {
         initComponents();
-        
-        //My collecting all the board elements into an array
-        JLabel[][][] my_jlabelHolder = {
-            {
-                {jLabel1, jLabel2}, {jLabel3, jLabel4}, {jLabel5, jLabel6}, 
-                {jLabel7, jLabel8}, {jLabel9, jLabel10}, {jLabel11, jLabel12}, 
-                {jLabel13, jLabel14}, {jLabel15, jLabel16}, {jLabel17, jLabel18},
-                {jLabel19, jLabel20}, {jLabel21, jLabel22}, {jLabel23, jLabel24},
-                {jLabel25, jLabel26}, {jLabel27, jLabel28}, {jLabel29, jLabel30}
-            },
-            {
-                {jLabel32, jLabel31}, {jLabel33, jLabel34}, {jLabel35, jLabel36}, 
-                {jLabel37, jLabel38}, {jLabel39, jLabel40}, {jLabel41, jLabel42}, 
-                {jLabel43, jLabel44}, {jLabel45, jLabel46}, {jLabel47, jLabel48},
-                {jLabel49, jLabel50}, {jLabel51, jLabel52}, {jLabel53, jLabel54},
-                {jLabel55, jLabel56}, {jLabel57, jLabel58}, {jLabel59, jLabel60}
-            },
-            {
-                {jLabel61, jLabel62}, {jLabel63, jLabel64}, {jLabel65, jLabel66}, 
-                {jLabel67, jLabel68}, {jLabel69, jLabel70}, {jLabel71, jLabel72}, 
-                {jLabel73, jLabel74}, {jLabel75, jLabel76}, {jLabel77, jLabel78},
-                {jLabel79, jLabel80}, {jLabel81, jLabel82}, {jLabel83, jLabel84},
-                {jLabel85, jLabel86}, {jLabel87, jLabel88}, {jLabel89, jLabel90}
-            },
-            {
-                {jLabel91, jLabel92}, {jLabel93, jLabel94}, {jLabel95, jLabel96}, 
-                {jLabel97, jLabel98}, {jLabel99, jLabel100}, {jLabel101, jLabel102}, 
-                {jLabel103, jLabel104}, {jLabel105, jLabel106}, {jLabel107, jLabel108},
-                {jLabel109, jLabel110}, {jLabel111, jLabel112}, {jLabel113, jLabel114},
-                {jLabel115, jLabel116}, {jLabel117, jLabel118}, {jLabel119, jLabel120}
-            },
-            {
-                {jLabel121, jLabel122}, {jLabel123, jLabel124}, {jLabel125, jLabel126}, 
-                {jLabel127, jLabel128}, {jLabel129, jLabel130}, {jLabel131, jLabel132}, 
-                {jLabel133, jLabel134}, {jLabel135, jLabel136}, {jLabel137, jLabel138},
-                {jLabel139, jLabel140}, {jLabel141, jLabel142}, {jLabel143, jLabel144},
-                {jLabel145, jLabel146}, {jLabel147, jLabel148}, {jLabel149, jLabel150}
-            },
-            {
-                {jLabel151, jLabel152}, {jLabel153, jLabel154}, {jLabel155, jLabel156}, 
-                {jLabel157, jLabel158}, {jLabel159, jLabel160}, {jLabel161, jLabel162}, 
-                {jLabel163, jLabel164}, {jLabel165, jLabel166}, {jLabel167, jLabel168},
-                {jLabel169, jLabel170}, {jLabel171, jLabel172}, {jLabel173, jLabel174},
-                {jLabel175, jLabel176}, {jLabel177, jLabel178}, {jLabel179, jLabel180}
-            },
-            {
-                {jLabel181, jLabel182}, {jLabel183, jLabel184}, {jLabel185, jLabel186}, 
-                {jLabel187, jLabel188}, {jLabel379, jLabel380}, {jLabel189, jLabel190},
-                {jLabel191, jLabel192}, {jLabel193, jLabel194}, {jLabel383, jLabel384},
-                {jLabel195, jLabel196}, {jLabel385, jLabel386}, {jLabel197, jLabel198},
-                {jLabel387, jLabel388}, {jLabel199, jLabel200}, {jLabel201, jLabel202}
-            },
-            {
-                {jLabel203, jLabel204}, {jLabel375, jLabel376}, {jLabel205, jLabel206},
-                {jLabel377, jLabel378}, {jLabel207, jLabel208}, {jLabel381, jLabel382},
-                {jLabel209, jLabel210}, {jLabel211, jLabel212}, {jLabel213, jLabel214},
-                {jLabel215, jLabel216}, {jLabel217, jLabel218}, {jLabel219, jLabel220},
-                {jLabel221, jLabel222}, {jLabel389, jLabel390}, {jLabel223, jLabel224}
-            },
-            {
-                {jLabel225, jLabel226}, {jLabel399, jLabel400}, {jLabel227, jLabel228},
-                {jLabel397, jLabel398}, {jLabel229, jLabel230}, {jLabel231, jLabel232},
-                {jLabel395, jLabel396}, {jLabel233, jLabel234}, {jLabel393, jLabel394},
-                {jLabel235, jLabel236}, {jLabel237, jLabel238}, {jLabel239, jLabel240},
-                {jLabel391, jLabel392}, {jLabel241, jLabel242}, {jLabel243, jLabel244}
-            },
-            {
-                {jLabel245, jLabel246}, {jLabel247, jLabel248}, {jLabel249, jLabel250},
-                {jLabel251, jLabel252}, {jLabel253, jLabel254}, {jLabel401, jLabel402},
-                {jLabel255, jLabel256}, {jLabel403, jLabel404}, {jLabel257, jLabel258},
-                {jLabel405, jLabel406}, {jLabel259, jLabel260}, {jLabel407, jLabel408},
-                {jLabel261, jLabel262}, {jLabel263, jLabel264}, {jLabel265, jLabel266}
-            },
-            {
-                {jLabel425, jLabel426}, {jLabel267, jLabel268}, {jLabel269, jLabel270},
-                {jLabel419, jLabel420}, {jLabel271, jLabel272}, {jLabel417, jLabel418},
-                {jLabel273, jLabel274}, {jLabel415, jLabel416}, {jLabel275, jLabel276},
-                {jLabel277, jLabel278}, {jLabel279, jLabel280}, {jLabel409, jLabel410},
-                {jLabel281, jLabel282}, {jLabel283, jLabel284}, {jLabel285, jLabel286}
-            },
-            {
-                {jLabel427, jLabel428}, {jLabel287, jLabel288}, {jLabel289, jLabel290},
-                {jLabel421, jLabel422}, {jLabel291, jLabel292}, {jLabel293, jLabel294},
-                {jLabel295, jLabel296}, {jLabel297, jLabel298}, {jLabel299, jLabel300},
-                {jLabel301, jLabel302}, {jLabel413, jLabel414}, {jLabel303, jLabel304},
-                {jLabel411, jLabel412}, {jLabel305, jLabel306}, {jLabel307, jLabel308}
-            },
-            {
-                {jLabel309, jLabel310}, {jLabel311, jLabel312}, {jLabel313, jLabel314},
-                {jLabel423, jLabel424}, {jLabel315, jLabel316}, {jLabel317, jLabel318},
-                {jLabel429, jLabel430}, {jLabel319, jLabel320}, {jLabel321, jLabel322},
-                {jLabel431, jLabel432}, {jLabel323, jLabel324}, {jLabel325, jLabel326},
-                {jLabel327, jLabel328}, {jLabel329, jLabel330}, {jLabel433, jLabel434}
-            },
-            {
-                {jLabel331, jLabel332}, {jLabel333, jLabel334}, {jLabel447, jLabel448},
-                {jLabel335, jLabel336}, {jLabel337, jLabel338}, {jLabel339, jLabel340},
-                {jLabel443, jLabel444}, {jLabel341, jLabel342}, {jLabel343, jLabel344},
-                {jLabel345, jLabel346}, {jLabel437, jLabel438}, {jLabel347, jLabel348},
-                {jLabel349, jLabel350}, {jLabel351, jLabel352}, {jLabel435, jLabel436} 
-            },
-            {
-                {jLabel353, jLabel354}, {jLabel449, jLabel450}, {jLabel355, jLabel356},
-                {jLabel445, jLabel446}, {jLabel357, jLabel358}, {jLabel359, jLabel360},
-                {jLabel361, jLabel362}, {jLabel363, jLabel364}, {jLabel365, jLabel366},
-                {jLabel367, jLabel368}, {jLabel441, jLabel442}, {jLabel369, jLabel370},
-                {jLabel439, jLabel440}, {jLabel371, jLabel372}, {jLabel373, jLabel374}
-            }
-        };
-        JPanel[][] panelHolder = { 
-            {jPanel2, jPanel3, jPanel4, jPanel5, jPanel6, jPanel7, 
-            jPanel8, jPanel9, jPanel10, jPanel11, jPanel12, jPanel13, 
-            jPanel14, jPanel15, jPanel16},
-            {jPanel17, jPanel18, jPanel19, 
-            jPanel20, jPanel21, jPanel22, jPanel23, jPanel24, jPanel25, 
-            jPanel26, jPanel27, jPanel28, jPanel29, jPanel30, jPanel31}, 
-            {jPanel32, jPanel33, jPanel34, jPanel35, jPanel36, jPanel37, 
-            jPanel38, jPanel39, jPanel40, jPanel41, jPanel42, jPanel43, 
-            jPanel44, jPanel45, jPanel46}, 
-            {jPanel47, jPanel48, jPanel49, 
-            jPanel50, jPanel51, jPanel52, jPanel53, jPanel54, jPanel55, 
-            jPanel56, jPanel57, jPanel58, jPanel59, jPanel60, jPanel61}, 
-            {jPanel62, jPanel63, jPanel64, jPanel65, jPanel66, jPanel67, 
-            jPanel68, jPanel69, jPanel70, jPanel71, jPanel72, jPanel73, 
-            jPanel74, jPanel75, jPanel76}, 
-            {jPanel77, jPanel78, jPanel79, 
-            jPanel80, jPanel81, jPanel82, jPanel83, jPanel84, jPanel85, 
-            jPanel86, jPanel87, jPanel88, jPanel89, jPanel90, jPanel91}, 
-            {jPanel92, jPanel93, jPanel94, jPanel95, jPanel96, jPanel97, 
-            jPanel98, jPanel99, jPanel100, jPanel101, jPanel102, jPanel103, 
-            jPanel104, jPanel105, jPanel106}, 
-            {jPanel107, jPanel108, 
-            jPanel109, jPanel110, jPanel111, jPanel112, jPanel113, 
-            jPanel114, jPanel115, jPanel116, jPanel117, jPanel118, jPanel119, 
-            jPanel120, jPanel121}, 
-            {jPanel122, jPanel123, jPanel124, jPanel125, 
-            jPanel126, jPanel127, jPanel128, jPanel129, jPanel130, jPanel131, 
-            jPanel132, jPanel133, jPanel134, jPanel135, jPanel136}, 
-            {jPanel137, 
-            jPanel138, jPanel139, jPanel140, jPanel141, jPanel142, jPanel143, 
-            jPanel144, jPanel145, jPanel146, jPanel147, jPanel148, jPanel149, 
-            jPanel150, jPanel151}, 
-            {jPanel152, jPanel153, jPanel154, jPanel155, 
-            jPanel156, jPanel157, jPanel158, jPanel159, jPanel160, jPanel161, 
-            jPanel162, jPanel163, jPanel164, jPanel165, jPanel166}, 
-            {jPanel167, 
-            jPanel168, jPanel169, jPanel170, jPanel171, jPanel172, jPanel173, 
-            jPanel174, jPanel175, jPanel176, jPanel177, jPanel178, jPanel179, 
-            jPanel180, jPanel181}, 
-            {jPanel182, jPanel183, jPanel184, jPanel185, 
-            jPanel186, jPanel187, jPanel188, jPanel189, jPanel190, jPanel191, 
-            jPanel192, jPanel193, jPanel194, jPanel195, jPanel196}, 
-            {jPanel197, 
-            jPanel198, jPanel199, jPanel200, jPanel201, jPanel202, jPanel203, 
-            jPanel204, jPanel205, jPanel206, jPanel207, jPanel208, jPanel209, 
-            jPanel210, jPanel211}, 
-            {jPanel212, jPanel213, jPanel214, jPanel215, 
-            jPanel216, jPanel217, jPanel218, jPanel219, jPanel220, jPanel221, 
-            jPanel222, jPanel223, jPanel224, jPanel225, jPanel226}
-        };
-        UserData d = UserData.getInstance();
-        Board b_ = new Board(my_jlabelHolder, listHorizontal, listVertical,
-                textScore, textTime);
-        b_.init(panelHolder);
-        d.uBoard_= b_;
-        //d.board_.init();
-        //*/
     }
 
     /**
@@ -4045,11 +3878,6 @@ public class guiFrame extends javax.swing.JFrame {
 
         jLabel451.setText("Time:");
 
-        listVertical.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         listVertical.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 listVerticalMouseReleased(evt);
@@ -4063,11 +3891,6 @@ public class guiFrame extends javax.swing.JFrame {
 
         jLabel454.setText("Horizontal");
 
-        listHorizontal.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         listHorizontal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 listHorizontalMouseReleased(evt);
@@ -4092,7 +3915,7 @@ public class guiFrame extends javax.swing.JFrame {
                             .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textScore, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(textScore)
                             .addComponent(textTime)))
                     .addGroup(jPanel227Layout.createSequentialGroup()
                         .addContainerGap()
@@ -4198,7 +4021,7 @@ public class guiFrame extends javax.swing.JFrame {
                             .addComponent(buttonQUIT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonQuitAndSave, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
                         .addContainerGap())
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4225,7 +4048,6 @@ public class guiFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveGameActionPerformed
-        // TODO test
         Main.save();
     }//GEN-LAST:event_buttonSaveGameActionPerformed
 
@@ -4244,12 +4066,172 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonNewGameActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO import hints
+        //My collecting all the board elements into an array
+        JLabel[][][] my_jlabelHolder = {
+            {
+                {jLabel1, jLabel2}, {jLabel3, jLabel4}, {jLabel5, jLabel6}, 
+                {jLabel7, jLabel8}, {jLabel9, jLabel10}, {jLabel11, jLabel12}, 
+                {jLabel13, jLabel14}, {jLabel15, jLabel16}, {jLabel17, jLabel18},
+                {jLabel19, jLabel20}, {jLabel21, jLabel22}, {jLabel23, jLabel24},
+                {jLabel25, jLabel26}, {jLabel27, jLabel28}, {jLabel29, jLabel30}
+            },
+            {
+                {jLabel31, jLabel32}, {jLabel33, jLabel34}, {jLabel35, jLabel36}, 
+                {jLabel37, jLabel38}, {jLabel39, jLabel40}, {jLabel41, jLabel42}, 
+                {jLabel43, jLabel44}, {jLabel45, jLabel46}, {jLabel47, jLabel48},
+                {jLabel49, jLabel50}, {jLabel51, jLabel52}, {jLabel53, jLabel54},
+                {jLabel55, jLabel56}, {jLabel57, jLabel58}, {jLabel59, jLabel60}
+            },
+            {
+                {jLabel61, jLabel62}, {jLabel63, jLabel64}, {jLabel65, jLabel66}, 
+                {jLabel67, jLabel68}, {jLabel69, jLabel70}, {jLabel71, jLabel72}, 
+                {jLabel73, jLabel74}, {jLabel75, jLabel76}, {jLabel77, jLabel78},
+                {jLabel79, jLabel80}, {jLabel81, jLabel82}, {jLabel83, jLabel84},
+                {jLabel85, jLabel86}, {jLabel87, jLabel88}, {jLabel89, jLabel90}
+            },
+            {
+                {jLabel91, jLabel92}, {jLabel93, jLabel94}, {jLabel97, jLabel98}, 
+                {jLabel95, jLabel96}, {jLabel99, jLabel100}, {jLabel101, jLabel102}, 
+                {jLabel103, jLabel104}, {jLabel105, jLabel106}, {jLabel107, jLabel108},
+                {jLabel109, jLabel110}, {jLabel111, jLabel112}, {jLabel113, jLabel114},
+                {jLabel115, jLabel116}, {jLabel117, jLabel118}, {jLabel119, jLabel120}
+            },
+            {
+                {jLabel121, jLabel122}, {jLabel123, jLabel124}, {jLabel125, jLabel126}, 
+                {jLabel127, jLabel128}, {jLabel129, jLabel130}, {jLabel131, jLabel132}, 
+                {jLabel133, jLabel134}, {jLabel135, jLabel136}, {jLabel137, jLabel138},
+                {jLabel139, jLabel140}, {jLabel141, jLabel142}, {jLabel143, jLabel144},
+                {jLabel145, jLabel146}, {jLabel147, jLabel148}, {jLabel149, jLabel150}
+            },
+            {
+                {jLabel151, jLabel152}, {jLabel153, jLabel154}, {jLabel155, jLabel156}, 
+                {jLabel157, jLabel158}, {jLabel159, jLabel160}, {jLabel161, jLabel162}, 
+                {jLabel163, jLabel164}, {jLabel165, jLabel166}, {jLabel167, jLabel168},
+                {jLabel169, jLabel170}, {jLabel171, jLabel172}, {jLabel173, jLabel174},
+                {jLabel175, jLabel176}, {jLabel177, jLabel178}, {jLabel179, jLabel180}
+            },
+            {
+                {jLabel181, jLabel182}, {jLabel183, jLabel184}, {jLabel185, jLabel186}, 
+                {jLabel187, jLabel188}, {jLabel379, jLabel380}, {jLabel189, jLabel190},
+                {jLabel191, jLabel192}, {jLabel193, jLabel194}, {jLabel383, jLabel384},
+                {jLabel195, jLabel196}, {jLabel385, jLabel386}, {jLabel197, jLabel198},
+                {jLabel387, jLabel388}, {jLabel199, jLabel200}, {jLabel201, jLabel202}
+            },
+            {
+                {jLabel203, jLabel204}, {jLabel375, jLabel376}, {jLabel205, jLabel206},
+                {jLabel377, jLabel378}, {jLabel207, jLabel208}, {jLabel381, jLabel382},
+                {jLabel209, jLabel210}, {jLabel211, jLabel212}, {jLabel213, jLabel214},
+                {jLabel215, jLabel216}, {jLabel217, jLabel218}, {jLabel219, jLabel220},
+                {jLabel221, jLabel222}, {jLabel389, jLabel390}, {jLabel223, jLabel224}
+            },
+            {
+                {jLabel225, jLabel226}, {jLabel399, jLabel400}, {jLabel227, jLabel228},
+                {jLabel397, jLabel398}, {jLabel229, jLabel230}, {jLabel231, jLabel232},
+                {jLabel395, jLabel396}, {jLabel233, jLabel234}, {jLabel393, jLabel394},
+                {jLabel235, jLabel236}, {jLabel237, jLabel238}, {jLabel239, jLabel240},
+                {jLabel391, jLabel392}, {jLabel241, jLabel242}, {jLabel243, jLabel244}
+            },
+            {
+                {jLabel245, jLabel246}, {jLabel247, jLabel248}, {jLabel249, jLabel250},
+                {jLabel251, jLabel252}, {jLabel253, jLabel254}, {jLabel401, jLabel402},
+                {jLabel255, jLabel256}, {jLabel403, jLabel404}, {jLabel257, jLabel258},
+                {jLabel405, jLabel406}, {jLabel259, jLabel260}, {jLabel407, jLabel408},
+                {jLabel261, jLabel262}, {jLabel263, jLabel264}, {jLabel265, jLabel266}
+            },
+            {
+                {jLabel425, jLabel426}, {jLabel267, jLabel268}, {jLabel269, jLabel270},
+                {jLabel419, jLabel420}, {jLabel271, jLabel272}, {jLabel417, jLabel418},
+                {jLabel273, jLabel274}, {jLabel415, jLabel416}, {jLabel275, jLabel276},
+                {jLabel277, jLabel278}, {jLabel279, jLabel280}, {jLabel409, jLabel410},
+                {jLabel281, jLabel282}, {jLabel283, jLabel284}, {jLabel285, jLabel286}
+            },
+            {
+                {jLabel427, jLabel428}, {jLabel287, jLabel288}, {jLabel289, jLabel290},
+                {jLabel421, jLabel422}, {jLabel291, jLabel292}, {jLabel293, jLabel294},
+                {jLabel295, jLabel296}, {jLabel297, jLabel298}, {jLabel299, jLabel300},
+                {jLabel301, jLabel302}, {jLabel413, jLabel414}, {jLabel303, jLabel304},
+                {jLabel411, jLabel412}, {jLabel305, jLabel306}, {jLabel307, jLabel308}
+            },
+            {
+                {jLabel309, jLabel310}, {jLabel311, jLabel312}, {jLabel313, jLabel314},
+                {jLabel423, jLabel424}, {jLabel315, jLabel316}, {jLabel317, jLabel318},
+                {jLabel429, jLabel430}, {jLabel319, jLabel320}, {jLabel321, jLabel322},
+                {jLabel431, jLabel432}, {jLabel323, jLabel324}, {jLabel325, jLabel326},
+                {jLabel327, jLabel328}, {jLabel329, jLabel330}, {jLabel433, jLabel434}
+            },
+            {
+                {jLabel331, jLabel332}, {jLabel333, jLabel334}, {jLabel447, jLabel448},
+                {jLabel335, jLabel336}, {jLabel337, jLabel338}, {jLabel339, jLabel340},
+                {jLabel443, jLabel444}, {jLabel341, jLabel342}, {jLabel343, jLabel344},
+                {jLabel345, jLabel346}, {jLabel437, jLabel438}, {jLabel347, jLabel348},
+                {jLabel349, jLabel350}, {jLabel351, jLabel352}, {jLabel435, jLabel436} 
+            },
+            {
+                {jLabel353, jLabel354}, {jLabel449, jLabel450}, {jLabel355, jLabel356},
+                {jLabel445, jLabel446}, {jLabel357, jLabel358}, {jLabel359, jLabel360},
+                {jLabel361, jLabel362}, {jLabel363, jLabel364}, {jLabel365, jLabel366},
+                {jLabel367, jLabel368}, {jLabel441, jLabel442}, {jLabel369, jLabel370},
+                {jLabel439, jLabel440}, {jLabel371, jLabel372}, {jLabel373, jLabel374}
+            }
+        };
+        JPanel[][] panelHolder = { 
+            {jPanel2, jPanel3, jPanel4, jPanel5, jPanel6, jPanel7, 
+            jPanel8, jPanel9, jPanel10, jPanel11, jPanel12, jPanel13, 
+            jPanel14, jPanel15, jPanel16},
+            {jPanel17, jPanel18, jPanel19, 
+            jPanel20, jPanel21, jPanel22, jPanel23, jPanel24, jPanel25, 
+            jPanel26, jPanel27, jPanel28, jPanel29, jPanel30, jPanel31}, 
+            {jPanel32, jPanel33, jPanel34, jPanel35, jPanel36, jPanel37, 
+            jPanel38, jPanel39, jPanel40, jPanel41, jPanel42, jPanel43, 
+            jPanel44, jPanel45, jPanel46}, 
+            {jPanel47, jPanel48, jPanel49, 
+            jPanel50, jPanel51, jPanel52, jPanel53, jPanel54, jPanel55, 
+            jPanel56, jPanel57, jPanel58, jPanel59, jPanel60, jPanel61}, 
+            {jPanel62, jPanel63, jPanel64, jPanel65, jPanel66, jPanel67, 
+            jPanel68, jPanel69, jPanel70, jPanel71, jPanel72, jPanel73, 
+            jPanel74, jPanel75, jPanel76}, 
+            {jPanel77, jPanel78, jPanel79, 
+            jPanel80, jPanel81, jPanel82, jPanel83, jPanel84, jPanel85, 
+            jPanel86, jPanel87, jPanel88, jPanel89, jPanel90, jPanel91}, 
+            {jPanel92, jPanel93, jPanel94, jPanel95, jPanel96, jPanel97, 
+            jPanel98, jPanel99, jPanel100, jPanel101, jPanel102, jPanel103, 
+            jPanel104, jPanel105, jPanel106}, 
+            {jPanel107, jPanel108, 
+            jPanel109, jPanel110, jPanel111, jPanel112, jPanel113, 
+            jPanel114, jPanel115, jPanel116, jPanel117, jPanel118, jPanel119, 
+            jPanel120, jPanel121}, 
+            {jPanel122, jPanel123, jPanel124, jPanel125, 
+            jPanel126, jPanel127, jPanel128, jPanel129, jPanel130, jPanel131, 
+            jPanel132, jPanel133, jPanel134, jPanel135, jPanel136}, 
+            {jPanel137, 
+            jPanel138, jPanel139, jPanel140, jPanel141, jPanel142, jPanel143, 
+            jPanel144, jPanel145, jPanel146, jPanel147, jPanel148, jPanel149, 
+            jPanel150, jPanel151}, 
+            {jPanel152, jPanel153, jPanel154, jPanel155, 
+            jPanel156, jPanel157, jPanel158, jPanel159, jPanel160, jPanel161, 
+            jPanel162, jPanel163, jPanel164, jPanel165, jPanel166}, 
+            {jPanel167, 
+            jPanel168, jPanel169, jPanel170, jPanel171, jPanel172, jPanel173, 
+            jPanel174, jPanel175, jPanel176, jPanel177, jPanel178, jPanel179, 
+            jPanel180, jPanel181}, 
+            {jPanel182, jPanel183, jPanel184, jPanel185, 
+            jPanel186, jPanel187, jPanel188, jPanel189, jPanel190, jPanel191, 
+            jPanel192, jPanel193, jPanel194, jPanel195, jPanel196}, 
+            {jPanel197, 
+            jPanel198, jPanel199, jPanel200, jPanel201, jPanel202, jPanel203, 
+            jPanel204, jPanel205, jPanel206, jPanel207, jPanel208, jPanel209, 
+            jPanel210, jPanel211}, 
+            {jPanel212, jPanel213, jPanel214, jPanel215, 
+            jPanel216, jPanel217, jPanel218, jPanel219, jPanel220, jPanel221, 
+            jPanel222, jPanel223, jPanel224, jPanel225, jPanel226}
+        };
+        UserData d = UserData.getInstance();
+        Board b_ = new Board(my_jlabelHolder, listHorizontal, listVertical,
+                textScore, textTime);
+        b_.init(panelHolder);
+        d.uBoard_= b_;
         textScore.setEditable(false);
         textTime.setEditable(false);
-        UserData d = UserData.getInstance();
-        SaveData s = SaveData.getInstance();
-        d.uBoard_.uScore = 0;
         loginFrame lf = new loginFrame();
         lf.setVisible(true);
         //this.setFocusableWindowState(false);
@@ -4257,26 +4239,47 @@ public class guiFrame extends javax.swing.JFrame {
 
     private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
         UserData d = UserData.getInstance();
-        textScore.setText(""+d.uBoard_.uScore);
-        //TODO decide if i want to write anything on save or just on svae and quit
+        if( d.uBoard_.bScore == null ) {
+            // TODO update score, init and then change the label
+        }
+        else {
+            textScore.setText(""+d.uBoard_.bScore);
+        }
     }//GEN-LAST:event_buttonScoreGameActionPerformed
 
     private void buttonQuitAndSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQuitAndSaveActionPerformed
-        // TODO test
         Main.save();
         System.exit(0);
     }//GEN-LAST:event_buttonQuitAndSaveActionPerformed
 
     private void listVerticalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listVerticalMouseReleased
-        // TODO on click open word submit of that hint
         Transfer t = Transfer.getInstance();
-        listVertical.getSelectedIndex();
+        UserData d = UserData.getInstance();
+               
+        int i;
+        for (i = 0; i < d.uHints.length; i++) {
+            if( d.uHints[i].hint == listVertical.getSelectedValue() )
+                break;
+        }
+        t.current = d.uHints[i];
+        
+        wordSubmitFrame wsf = new wordSubmitFrame();
+        wsf.setVisible(true);
     }//GEN-LAST:event_listVerticalMouseReleased
 
     private void listHorizontalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listHorizontalMouseReleased
-        // TODO on click open word submit of that hint
         Transfer t = Transfer.getInstance();
-        listHorizontal.getSelectedIndex();
+        UserData d = UserData.getInstance();
+
+        int i;
+        for (i = 0; i < d.uHints.length; i++) {
+            if( d.uHints[i].hint == listHorizontal.getSelectedValue() )
+                break;
+        }
+        t.current = d.uHints[i];
+        
+        wordSubmitFrame wsf = new wordSubmitFrame();
+        wsf.setVisible(true);
     }//GEN-LAST:event_listHorizontalMouseReleased
 
     /**

@@ -42,30 +42,38 @@ public class Main {
         return temp;
     }
     public static void save() {
-        // TODO finish save method
         // TODO check for duplicate before saving
         SaveData s = SaveData.getInstance();
         UserData d = UserData.getInstance();
-        Transfer t = Transfer.getInstance();
         Gson gsonSave = new Gson();
-        if( s.userSaves == null ) {
-            s.userSaves = Main.expand(s.userSaves, 1);
-        }
-        else {
-            s.userSaves = Main.expand(s.userSaves, s.userSaves.length+1);
-        }
-        System.out.println("null check");
-        s.userSaves[s.userSaves.length-1] = d;
-        // TODO update every val of UserData before adding to array
         try {
-            PrintWriter out = new PrintWriter(
-                new FileWriter("saves.txt"));
-            //TODO test
-            //System.out.println("before json");
-            String tmp = gsonSave.toJson(s.userSaves);
-            //System.out.println("after json");
-            out.print(tmp);
-            out.close();
+            if( d.uHints != null ) {
+                if( s.userSaves == null ) {
+                    s.userSaves = Main.expand(s.userSaves, 1);
+                }
+                else {
+                    s.userSaves = Main.expand(s.userSaves, s.userSaves.length+1);
+                }
+                if(d.uSaveName == null) {
+                    System.out.print("uSaveName is null");
+                    int count = 0;
+                    for (int i = 0; i < s.userSaves.length; i++) {
+                        if( s.userSaves[i].uName.compareTo(d.uName) == 0 ) {
+                            count++;
+                        }
+                    }
+                    d.uSaveName = "save"+(count+1);
+                }
+                s.userSaves[s.userSaves.length-1] = d;
+                PrintWriter out = new PrintWriter(
+                    new FileWriter("saves.txt"));
+                String tmp = gsonSave.toJson(s.userSaves);
+                out.print(tmp);
+                out.close();
+            }
+            else{
+                System.out.println("no game selected, not going to save");
+            }
         }
         catch( Exception e ) {
             System.out.println("Exceptione is ="+e.getMessage());

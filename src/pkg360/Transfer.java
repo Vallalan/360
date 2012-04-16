@@ -1,10 +1,26 @@
 package pkg360;
+
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 /**
  * @author Caleb Morris
  */
 public class Transfer {
     private static Transfer instance = null;
     public Hint current;
+    
+    public JList horizontalContain;
+    public JList verticalContain;
+    public JTextField scoreContain;
+    public JTextField timerContain;
+    
+    public JLabel[][] num;
+    public JLabel[][] let;
+    public JPanel[][] contain;
+    
     protected Transfer() {
       // Exists only to defeat instantiation.
     }

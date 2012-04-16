@@ -1,5 +1,9 @@
 package pkg360;
 
+import java.awt.Color;
+import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 /**
@@ -139,10 +143,89 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStartGameActionPerformed
-        // TODO update UserData to match the save or set the board for the new game
-        System.out.println(listDifficulty.getSelectedValue());
-        System.out.println(listNumbPlayers.getSelectedValue());
-        System.out.println(listSelect.getSelectedValue());
+        //try {
+        
+        UserData d = UserData.getInstance();
+        Transfer t = Transfer.getInstance();
+        
+        if( listSelect.getSelectedIndex() == 0 ) {
+            d.uDifficulty = listDifficulty.getSelectedIndex()+1;
+            d.uNumPlayers = listNumbPlayers.getSelectedIndex()+1;
+            InputTest it = new InputTest();
+            it.main();
+            Vector<Hint> v = it.getHints();
+            if( v != null ) {
+                d.uHints = (Hint[])it.getHints().toArray(new Hint[it.getHints().size()]);
+            }
+            else {
+                System.out.println("getHints is returning null");
+            }
+            d.uBoard_.uScore = 0;
+            d.uBoardSize = it.getBoardSize();
+            d.uBoard_.time = 0;        
+            d.uSaveName = ""; //TODO fix savename to be save<#(saves)+1>
+            
+            System.out.println("set num");
+            Arrays.sort(d.uHints);
+            int i=1;
+            while( i < d.uHints.length ) {
+                d.uHints[i].number = i;
+                if( i < d.uHints.length - 1 && 
+                    ((d.uHints[i].startX == d.uHints[i+1].startX) || 
+                        (d.uHints[i].startY == d.uHints[i+1].startY))) {
+                    d.uHints[i].number = i;
+                    ++i;
+                }
+                ++i;
+            }
+            System.out.println("set labels");
+            
+            DefaultListModel listHorizontal = new DefaultListModel();
+            DefaultListModel listVertical = new DefaultListModel();
+            //listM.addElement(v.elementAt(i).uSaveName);
+            for (int j = 0; j < d.uHints.length; j++) {
+                // TODO finish this part after alan fixes hit x,y productions
+                System.out.println("j: " + j);
+                System.out.println(d.uHints[j].startX + " "+d.uHints[j].startY);
+                System.out.println(d.uHints[j].answer);
+                d.uBoard_.b
+                        [d.uHints[j].startY]
+                        [d.uHints[j].startX].numVal = 
+                        d.uHints[j].number;
+                t.num[d.uHints[j].startY][d.uHints[j].startX].setText(""+d.uHints[j].number);
+                t.contain[d.uHints[j].startY][d.uHints[j].startX].setBackground(new Color(240,240,240));
+                
+                // TODO check if i need to just add the hint or the wohle object will work
+                if( d.uHints[j].ori == Hint.Orientation.ACROSS ) {
+                    listHorizontal.addElement(d.uHints[j]);
+                }
+                else {
+                    listVertical.addElement(d.uHints[j]);
+                }
+            }
+            t.horizontalContain.setModel(listHorizontal);
+            t.verticalContain.setModel(listVertical);
+        }
+        else {
+            //TODO load saves and set d to the saveState
+        }
+        // Start timer
+        int delay = 5000;   // delay for 5 sec.
+        int period = 1000;  // repeat every sec.
+        Timer timer = new Timer();
+
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                System.out.println("test");
+            }
+        }, delay, period);
+        //
+        
+        this.setVisible(false);
+        //}
+        //catch(Exception e) {
+        //    System.out.println("Exceptione is ="+e.getMessage());
+        //}
     }//GEN-LAST:event_buttonStartGameActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -160,10 +243,10 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
             }
         }
         DefaultListModel listM = new DefaultListModel();
-        d.saveName = "New Game";
+        d.uSaveName = "New Game";
         v.add(0, d);
         for (int i = 0; i < v.size(); i++) {
-            listM.addElement(v.elementAt(i).saveName);
+            listM.addElement(v.elementAt(i).uSaveName);
         }
         listSelect.setModel(listM);
     }//GEN-LAST:event_formWindowOpened

@@ -35,6 +35,11 @@ public class wordSubmitFrame extends javax.swing.JFrame {
         labelHint = new javax.swing.JLabel();
 
         setTitle("Submit Word");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Answer:");
@@ -97,25 +102,42 @@ public class wordSubmitFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSubmitActionPerformed
-        // TODO Allow only the matching length number of characters.
-        // Update score on submit
         Transfer t = Transfer.getInstance();
         UserData d = UserData.getInstance();
         Hint tmp = t.current;
         String word = textAnswer.getText().substring(0, tmp.length);
         if( d.uHints != null ) {
-            for (int i = 0; i < d.uHints.length; i++) {
+            // Find the hint that we are submitting
+            int i;
+            for ( i = 0; i < d.uHints.length; i++) {
                 if( d.uHints[i].compareTo(tmp) == 0 ) {
                     d.uHints[i].guess = word;
                     break;
                 }
             }
+            if( d.uHints[i].ori == Hint.Orientation.ACROSS ) {
+                for (int j = d.uHints[i].startX; j < d.uHints[i].length; j++) {
+                    t.let[d.uHints[i].startY][j].setText(word.substring(j,j+1));
+                    d.uBoard_.b[d.uHints[i].startY][j].letVal = word.charAt(j);
+                }
+            }
+            else {
+                //Down
+                for (int j = d.uHints[i].startX; j < d.uHints[i].length; j++) {
+                    t.let[j][d.uHints[i].startX].setText(word.substring(j,j+1));
+                    d.uBoard_.b[j][d.uHints[i].startX].letVal = word.charAt(j);
+                }
+            }
         }
-        //d.uHints[];
-        //if( true ) {
-            
-        //}
+        else {
+            System.out.println("uHints is null. find the fuck-up");
+        }
     }//GEN-LAST:event_buttonSubmitActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // Write the hint to the given label
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

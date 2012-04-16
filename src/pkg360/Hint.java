@@ -1,5 +1,4 @@
 package pkg360;
-//TODO finish this stupid class (import data from file to this format)
 /**
  * @author Caleb Morris
  */
@@ -13,6 +12,7 @@ public class Hint implements Comparable<Hint> {
     public int startX;
     public int startY;
     public int length;
+    public int number;
     public Orientation ori;
     
     public Hint( String answer, String hint, int x , int y, int length, Orientation ori ) {
@@ -27,11 +27,36 @@ public class Hint implements Comparable<Hint> {
     
     @Override
     public int compareTo(Hint h) {
-        if( this.answer.equals(h.answer) && this.hint.equals(h.hint) && 
-            this.startX == h.startX && this.startY == h.startY &&
-            this.length == h.length && this.ori == h.ori)
-            return 0;
-        else
+        if( this.startX > h.startX ) {
+            return 1;
+        }
+        else if( this.startX < h.startX ) {
             return -1;
+        }
+        else {
+            if( this.startY > h.startY ) {
+                return 1;
+            }
+            else if( this.startY < h.startY ) {
+                return -1;
+            }
+            else {
+                if( this.ori == Hint.Orientation.ACROSS && h.ori == Hint.Orientation.DOWN) {
+                        return 1;
+                }
+                else if( this.ori == Hint.Orientation.DOWN && h.ori == Hint.Orientation.ACROSS ) {
+                        return -1;
+                }
+                else {
+                    if( this.answer.equals(h.answer) && this.hint.equals(h.hint)
+                        && this.length == h.length) {
+                            return 0;
+                    }
+                    else {
+                        return -1;
+                    }
+                }
+            }
+        }
     }
 }

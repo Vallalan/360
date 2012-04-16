@@ -139,14 +139,13 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStartGameActionPerformed
-        // TODO add your handling code here:
+        // TODO update UserData to match the save or set the board for the new game
         System.out.println(listDifficulty.getSelectedValue());
         System.out.println(listNumbPlayers.getSelectedValue());
         System.out.println(listSelect.getSelectedValue());
     }//GEN-LAST:event_buttonStartGameActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
         UserData d = UserData.getInstance();
         SaveData s = SaveData.getInstance();
         Vector<UserData> v = new Vector<UserData>();

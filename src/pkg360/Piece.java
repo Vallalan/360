@@ -8,9 +8,9 @@ import javax.swing.JPanel;
  * @author Caleb Morris
  */
 public class Piece {
-    public JLabel num;
-    public JLabel let;
-    public JPanel contain;
+    //public JLabel num;
+    //public JLabel let;
+    //public JPanel contain;
     public int numVal;
     public char letVal;
     /*
@@ -22,9 +22,9 @@ public class Piece {
     }
     * 
     */
-    public Piece(JLabel l, JLabel n) {
-        num = n;
-        let = l;
+    public Piece() {
+        //num = n;
+        //let = l;
         numVal = -1;
         letVal = '.';
     }

@@ -5,11 +5,12 @@ package pkg360;
 public class UserData {
    private static UserData instance = null;
    public String uName;
-   public int uScore;
-   public Board board_;
-   public int time;
-   public String saveName;
+   public Board uBoard_;
+   public int uBoardSize;
+   public String uSaveName;
    public Hint[] uHints;
+   public int uDifficulty; // Easy, Medium, Hard: 1,2,3
+   public int uNumPlayers;
    protected UserData() {
       // Exists only to defeat instantiation.
    }

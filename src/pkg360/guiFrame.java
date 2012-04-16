@@ -2,15 +2,8 @@ package pkg360;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author cdbitesky
+ * @author Caleb Morris
  */
 public class guiFrame extends javax.swing.JFrame {
 
@@ -180,9 +173,10 @@ public class guiFrame extends javax.swing.JFrame {
             jPanel222, jPanel223, jPanel224, jPanel225, jPanel226}
         };
         UserData d = UserData.getInstance();
-        Board b_ = new Board(my_jlabelHolder);
+        Board b_ = new Board(my_jlabelHolder, listHorizontal, listVertical,
+                textScore, textTime);
         b_.init(panelHolder);
-        d.board_= b_;
+        d.uBoard_= b_;
         //d.board_.init();
         //*/
     }
@@ -4096,10 +4090,10 @@ public class guiFrame extends javax.swing.JFrame {
                         .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textScore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textScore, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(textTime)))
                     .addGroup(jPanel227Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel453))
@@ -4255,7 +4249,7 @@ public class guiFrame extends javax.swing.JFrame {
         textTime.setEditable(false);
         UserData d = UserData.getInstance();
         SaveData s = SaveData.getInstance();
-        d.uScore = 0;
+        d.uBoard_.uScore = 0;
         loginFrame lf = new loginFrame();
         lf.setVisible(true);
         //this.setFocusableWindowState(false);
@@ -4263,7 +4257,7 @@ public class guiFrame extends javax.swing.JFrame {
 
     private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
         UserData d = UserData.getInstance();
-        textScore.setText(""+d.uScore);
+        textScore.setText(""+d.uBoard_.uScore);
         //TODO decide if i want to write anything on save or just on svae and quit
     }//GEN-LAST:event_buttonScoreGameActionPerformed
 

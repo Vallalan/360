@@ -4285,6 +4285,7 @@ public class guiFrame extends javax.swing.JFrame {
                             line = gson.toJson(tmpScore);
                         }
                         Score[] scoreList = gson.fromJson(line, Score[].class);
+                        // TODO fix score overwriting
                         if( !scoreList[0].equals(d.uBoard_.bScore) ) {
                             Main.expand(scoreList, scoreList.length+1);
                             scoreList[scoreList.length-1] = d.uBoard_.bScore;

@@ -278,7 +278,7 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
                 t.verticalContain.setModel(listVertical);
             }
         }
-            
+        // TODO add a pause on score and reset on newgame
         // Start timer
         int delay = 1000;   // delay for 5 sec.
         int period = 1000;  // repeat every sec.

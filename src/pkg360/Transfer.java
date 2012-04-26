@@ -1,5 +1,6 @@
 package pkg360;
 
+import java.util.Timer;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -23,6 +24,8 @@ public class Transfer {
     public JPanel[][] contain;
     
     public loginFrame tLF;
+    
+    Timer timer;
     
     protected Transfer() {
       // Exists only to defeat instantiation.

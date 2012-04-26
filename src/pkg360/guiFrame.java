@@ -4351,6 +4351,7 @@ public class guiFrame extends javax.swing.JFrame {
                 }
             }
             textScore.setText(""+d.uBoard_.bScore.uScore);
+            Main.cancelTimer();
         }
         else {
             t.tLF.toFront();

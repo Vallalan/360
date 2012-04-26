@@ -143,6 +143,7 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStartGameActionPerformed
+        //TODO add another login spawn for 2-player
         //try {
         
         UserData d = UserData.getInstance();
@@ -278,7 +279,9 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
                 t.verticalContain.setModel(listVertical);
             }
         }
-        // TODO add a pause on score and reset on newgame
+        // TODO add a pause on score
+        // TODO change to start on second login if 2-player mode
+        // TODO reset on newgame
         // Start timer
         int delay = 1000;   // delay for 5 sec.
         int period = 1000;  // repeat every sec.

@@ -713,6 +713,11 @@ public class guiFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         listHorizontal = new javax.swing.JList();
         jLabel455 = new javax.swing.JLabel();
+        labelHidden1 = new javax.swing.JLabel();
+        textScore1 = new javax.swing.JTextField();
+        labelPlayer1 = new javax.swing.JLabel();
+        labelPlayer2 = new javax.swing.JLabel();
+        jLabel459 = new javax.swing.JLabel();
         buttonSaveGame = new javax.swing.JButton();
         buttonScoreGame = new javax.swing.JButton();
         buttonQuitAndSave = new javax.swing.JButton();
@@ -3902,6 +3907,14 @@ public class guiFrame extends javax.swing.JFrame {
 
         jLabel455.setText("Vertical");
 
+        labelHidden1.setText("Score:");
+
+        labelPlayer1.setText("player1");
+
+        labelPlayer2.setText("player2");
+
+        jLabel459.setText("Turn: Player 1");
+
         javax.swing.GroupLayout jPanel227Layout = new javax.swing.GroupLayout(jPanel227);
         jPanel227.setLayout(jPanel227Layout);
         jPanel227Layout.setHorizontalGroup(
@@ -3911,50 +3924,72 @@ public class guiFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel227Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addContainerGap()
+                        .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel227Layout.createSequentialGroup()
+                                .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel227Layout.createSequentialGroup()
+                                .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel227Layout.createSequentialGroup()
+                                        .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel227Layout.createSequentialGroup()
+                                        .addComponent(labelHidden1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)))
                         .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textScore)
-                            .addComponent(textTime)))
+                            .addComponent(textTime)
+                            .addComponent(textScore1)))
                     .addGroup(jPanel227Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel453))
-                    .addGroup(jPanel227Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jLabel455))
-                    .addGroup(jPanel227Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel454)))
+                        .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel227Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel453)
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel455))
+                            .addGroup(jPanel227Layout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(jLabel454)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel227Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel459)
+                .addGap(122, 122, 122))
         );
         jPanel227Layout.setVerticalGroup(
             jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel227Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel227Layout.createSequentialGroup()
-                        .addComponent(jLabel453)
-                        .addGap(0, 17, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel227Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel455)))
+                .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel453)
+                    .addComponent(jLabel455))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel454)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel459, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textScore1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelHidden1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelPlayer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel452, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPlayer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel451, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel451))
                 .addContainerGap())
         );
 
@@ -4083,6 +4118,8 @@ public class guiFrame extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         //My collecting all the board elements into an array
+        //TODO change the hidden fields to actual hide if 1 player.
+        //  on new game make visible
         JLabel[][][] my_jlabelHolder = {
             {
                 {jLabel1, jLabel2}, {jLabel3, jLabel4}, {jLabel5, jLabel6}, 
@@ -4256,6 +4293,9 @@ public class guiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
+        //TODO fix score
+        //TODO add scoring depending on easy,med,hard (in d)
+        //TODO fix score save
         UserData d = UserData.getInstance();
         Transfer t = Transfer.getInstance();
         Gson gson = new Gson();
@@ -4285,11 +4325,13 @@ public class guiFrame extends javax.swing.JFrame {
                             line = gson.toJson(tmpScore);
                         }
                         Score[] scoreList = gson.fromJson(line, Score[].class);
-                        // TODO fix score overwriting
-                        if( !scoreList[0].equals(d.uBoard_.bScore) ) {
-                            Main.expand(scoreList, scoreList.length+1);
-                            scoreList[scoreList.length-1] = d.uBoard_.bScore;
+                        if( scoreList == null ) {
+                            scoreList = Main.expand(scoreList, 1);
                         }
+                        else {
+                            scoreList = Main.expand(scoreList, scoreList.length+1);
+                        }
+                        scoreList[scoreList.length-1] = d.uBoard_.bScore;
                         
                         PrintWriter out = new PrintWriter(
                             new FileWriter("scores.txt"));
@@ -4797,6 +4839,7 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel453;
     private javax.swing.JLabel jLabel454;
     private javax.swing.JLabel jLabel455;
+    private javax.swing.JLabel jLabel459;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -5085,9 +5128,13 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel99;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelHidden1;
+    private javax.swing.JLabel labelPlayer1;
+    private javax.swing.JLabel labelPlayer2;
     private javax.swing.JList listHorizontal;
     private javax.swing.JList listVertical;
     private javax.swing.JTextField textScore;
+    private javax.swing.JTextField textScore1;
     private javax.swing.JTextField textTime;
     // End of variables declaration//GEN-END:variables
     private javax.swing.JLabel[][][] my_jlabelHolder;

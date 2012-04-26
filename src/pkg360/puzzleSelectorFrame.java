@@ -2,16 +2,13 @@ package pkg360;
 
 import java.awt.Color;
 import java.util.Arrays;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 /**
- *
  * @author Caleb Morris
  */
 public class puzzleSelectorFrame extends javax.swing.JFrame {
-
+    //TODO (put this somewhere specific) reset userdata on new puzzle select
     /**
      * Creates new form puzzleSelectorFrame
      */
@@ -143,6 +140,7 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStartGameActionPerformed
+        //TODO add another login spawn for 2-player
         //try {
         
         UserData d = UserData.getInstance();
@@ -278,25 +276,7 @@ public class puzzleSelectorFrame extends javax.swing.JFrame {
                 t.verticalContain.setModel(listVertical);
             }
         }
-        // TODO add a pause on score and reset on newgame
-        // Start timer
-        int delay = 1000;   // delay for 5 sec.
-        int period = 1000;  // repeat every sec.
-        Timer timer = new Timer();
-
-        timer.scheduleAtFixedRate(new TimerTask() {
-            UserData d = UserData.getInstance();
-            Transfer t = Transfer.getInstance();
-            @Override
-            public void run() {
-                t.timerContain.setText(""+(++d.uBoard_.time));
-                System.out.println(d.uBoard_.time);
-                if( d.uBoard_.bScore != null ) {
-                    cancel();
-                }
-            }
-        }, delay, period);
-        //
+        Main.startTimer();
         
         this.setVisible(false);
         //}

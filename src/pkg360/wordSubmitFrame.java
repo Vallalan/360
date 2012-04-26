@@ -145,6 +145,7 @@ public class wordSubmitFrame extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // Write the hint to the given label
+        // TODO fix word length dynamic expansion
         Transfer t = Transfer.getInstance();
         if( t.current.hint.length() > 24 ){
             labelHint.setText(t.current.hint.substring(0, 24));

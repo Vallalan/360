@@ -3,6 +3,8 @@ package pkg360;
 import com.google.gson.Gson;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +15,42 @@ public class Main {
         InputTest t = new InputTest();
         t.main();
         */
+    }
+    public static boolean startTimer() {
+        // TODO add a pause on score
+        // TODO change to start on second login if 2-player mode
+        // TODO reset on newgame
+        // Start timer
+        int delay = 1000;   // delay for 5 sec.
+        int period = 1000;  // repeat every sec.
+        
+        Transfer t = Transfer.getInstance();
+        //if( t.timer == null ) {
+            t.timer = new Timer();
+        //}
+        
+
+        t.timer.scheduleAtFixedRate(new TimerTask() {
+            UserData d = UserData.getInstance();
+            Transfer t = Transfer.getInstance();
+            @Override
+            public void run() {
+                t.timerContain.setText(""+(++d.uBoard_.time));
+                System.out.println(d.uBoard_.time);
+                //if( d.uBoard_.bScore != null ) {
+                //    cancel();
+                //}
+            }
+        }, delay, period);
+        //
+        return false;
+    }
+    public static boolean cancelTimer() {
+        Transfer t = Transfer.getInstance();
+        if( t.timer != null ) {
+            t.timer.cancel();
+        }
+        return false;
     }
     public static UserPW[] expand( UserPW[] array, int size) {
         UserPW[] temp = new UserPW[size];

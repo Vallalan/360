@@ -41,8 +41,8 @@ public class Board {
             for (int j = 0; j < 15; j++) {
                 t.contain[i][j] = jH[i][j];
                 t.contain[i][j].setBackground(new Color(0,0,0));
-                t.num[i][j].setText("");
-                t.let[i][j].setText("");
+                t.num[i][j].setText(" ");
+                t.let[i][j].setText(" ");
             }
         }
     }

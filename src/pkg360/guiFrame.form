@@ -8210,14 +8210,14 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel452" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <Component id="labelScoreEmpty" min="-2" pref="62" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="labelPlayer2" min="-2" pref="62" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="labelHidden1" min="-2" pref="62" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="labelPlayer1" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <Component id="labelHidden2" min="-2" pref="62" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -8250,7 +8250,9 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Component id="jLabel459" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="buttonPause" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -8269,16 +8271,19 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="122" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jLabel459" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel459" alignment="3" max="32767" attributes="0"/>
+                      <Component id="buttonPause" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="textScore1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="labelHidden1" alignment="3" max="32767" attributes="0"/>
-                      <Component id="labelPlayer1" alignment="3" max="32767" attributes="0"/>
+                      <Component id="labelHidden2" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel452" alignment="3" max="32767" attributes="0"/>
+                      <Component id="labelScoreEmpty" alignment="3" max="32767" attributes="0"/>
                       <Component id="textScore" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="labelPlayer2" alignment="3" max="32767" attributes="0"/>
                   </Group>
@@ -8317,7 +8322,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel452">
+        <Component class="javax.swing.JLabel" name="labelScoreEmpty">
           <Properties>
             <Property name="text" type="java.lang.String" value="Score:"/>
           </Properties>
@@ -8367,20 +8372,28 @@
         </Component>
         <Component class="javax.swing.JTextField" name="textScore1">
         </Component>
-        <Component class="javax.swing.JLabel" name="labelPlayer1">
+        <Component class="javax.swing.JLabel" name="labelHidden2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="player1"/>
+            <Property name="text" type="java.lang.String" value="player2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPlayer2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="player2"/>
+            <Property name="text" type="java.lang.String" value="player1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel459">
           <Properties>
             <Property name="text" type="java.lang.String" value="Turn: Player 1"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonPause">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pause"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPauseActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

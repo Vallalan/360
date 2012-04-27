@@ -705,7 +705,7 @@ public class guiFrame extends javax.swing.JFrame {
         jLabel451 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listVertical = new javax.swing.JList();
-        jLabel452 = new javax.swing.JLabel();
+        labelScoreEmpty = new javax.swing.JLabel();
         jLabel453 = new javax.swing.JLabel();
         textScore = new javax.swing.JTextField();
         textTime = new javax.swing.JTextField();
@@ -715,9 +715,10 @@ public class guiFrame extends javax.swing.JFrame {
         jLabel455 = new javax.swing.JLabel();
         labelHidden1 = new javax.swing.JLabel();
         textScore1 = new javax.swing.JTextField();
-        labelPlayer1 = new javax.swing.JLabel();
+        labelHidden2 = new javax.swing.JLabel();
         labelPlayer2 = new javax.swing.JLabel();
         jLabel459 = new javax.swing.JLabel();
+        buttonPause = new javax.swing.JButton();
         buttonSaveGame = new javax.swing.JButton();
         buttonScoreGame = new javax.swing.JButton();
         buttonQuitAndSave = new javax.swing.JButton();
@@ -3892,7 +3893,7 @@ public class guiFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listVertical);
 
-        jLabel452.setText("Score:");
+        labelScoreEmpty.setText("Score:");
 
         jLabel453.setText("Clue List");
 
@@ -3909,11 +3910,18 @@ public class guiFrame extends javax.swing.JFrame {
 
         labelHidden1.setText("Score:");
 
-        labelPlayer1.setText("player1");
+        labelHidden2.setText("player2");
 
-        labelPlayer2.setText("player2");
+        labelPlayer2.setText("player1");
 
         jLabel459.setText("Turn: Player 1");
+
+        buttonPause.setText("Pause");
+        buttonPause.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPauseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel227Layout = new javax.swing.GroupLayout(jPanel227);
         jPanel227.setLayout(jPanel227Layout);
@@ -3932,13 +3940,13 @@ public class guiFrame extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel227Layout.createSequentialGroup()
                                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel227Layout.createSequentialGroup()
-                                        .addComponent(jLabel452, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelScoreEmpty, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(labelPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel227Layout.createSequentialGroup()
                                         .addComponent(labelHidden1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(labelHidden2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)))
                         .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textScore)
@@ -3959,7 +3967,9 @@ public class guiFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel227Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel459)
-                .addGap(122, 122, 122))
+                .addGap(18, 18, 18)
+                .addComponent(buttonPause)
+                .addGap(31, 31, 31))
         );
         jPanel227Layout.setVerticalGroup(
             jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3975,15 +3985,17 @@ public class guiFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel459, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(29, 29, 29)
+                .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel459, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPause))
+                .addGap(24, 24, 24)
                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textScore1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelHidden1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelPlayer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelHidden2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel227Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel452, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelScoreEmpty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textScore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPlayer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4290,6 +4302,15 @@ public class guiFrame extends javax.swing.JFrame {
         t.tLF = lf;
         lf.setVisible(true);
         //this.setFocusableWindowState(false);
+        
+        t.lscr1 = this.labelHidden1;
+        t.lpla1 = this.labelHidden2;
+        t.textScorep1 = this.textScore1;
+        t.lscr1.setVisible(false);
+        t.lpla1.setVisible(false);
+        t.textScorep1.setVisible(false);
+        
+        t.isPaused = false;
     }//GEN-LAST:event_formWindowOpened
 
     private void buttonScoreGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScoreGameActionPerformed
@@ -4396,6 +4417,12 @@ public class guiFrame extends javax.swing.JFrame {
         wsf.setVisible(true);
     }//GEN-LAST:event_listHorizontalMouseReleased
 
+    private void buttonPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPauseActionPerformed
+        // TODO test if code works
+        Transfer t = Transfer.getInstance();
+        t.isPaused = !t.isPaused;
+    }//GEN-LAST:event_buttonPauseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4439,6 +4466,7 @@ public class guiFrame extends javax.swing.JFrame {
     }   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonNewGame;
+    private javax.swing.JButton buttonPause;
     private javax.swing.JButton buttonQUIT;
     private javax.swing.JButton buttonQuitAndSave;
     private javax.swing.JButton buttonSaveGame;
@@ -4836,7 +4864,6 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel450;
     private javax.swing.JLabel jLabel451;
-    private javax.swing.JLabel jLabel452;
     private javax.swing.JLabel jLabel453;
     private javax.swing.JLabel jLabel454;
     private javax.swing.JLabel jLabel455;
@@ -5130,8 +5157,9 @@ public class guiFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelHidden1;
-    private javax.swing.JLabel labelPlayer1;
+    private javax.swing.JLabel labelHidden2;
     private javax.swing.JLabel labelPlayer2;
+    private javax.swing.JLabel labelScoreEmpty;
     private javax.swing.JList listHorizontal;
     private javax.swing.JList listVertical;
     private javax.swing.JTextField textScore;

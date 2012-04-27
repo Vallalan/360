@@ -91,16 +91,18 @@
                   <Component id="labelDate1" min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelDate2" alignment="1" pref="7" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="labelDate2" alignment="1" max="32767" attributes="0"/>
                   <Component id="labelScore2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="labelTime2" max="32767" attributes="0"/>
+                  <Component id="labelTime2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelTime3" alignment="3" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="labelDate3" alignment="0" pref="21" max="32767" attributes="0"/>
-                  <Component id="labelScore3" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelTime3" alignment="3" max="32767" attributes="0"/>
+                      <Component id="labelScore3" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

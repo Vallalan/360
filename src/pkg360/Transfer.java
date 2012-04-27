@@ -27,6 +27,12 @@ public class Transfer {
     
     Timer timer;
     
+    public JLabel lscr1;
+    public JLabel lpla1;
+    public JTextField textScorep1;
+    
+    public boolean isPaused;
+    
     protected Transfer() {
       // Exists only to defeat instantiation.
     }

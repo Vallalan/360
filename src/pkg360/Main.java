@@ -35,8 +35,10 @@ public class Main {
             Transfer t = Transfer.getInstance();
             @Override
             public void run() {
-                t.timerContain.setText(""+(++d.uBoard_.time));
-                System.out.println(d.uBoard_.time);
+                if( !t.isPaused ) {
+                    t.timerContain.setText(""+(++d.uBoard_.time));
+                    System.out.println(d.uBoard_.time);
+                }
                 //if( d.uBoard_.bScore != null ) {
                 //    cancel();
                 //}

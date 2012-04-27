@@ -6,12 +6,12 @@ import java.util.Date;
  * @author Caleb Morris
  */
 public class Score implements Comparable<Score>{
-    public int uScore;
+    public double uScore;
     public Date date;
     public int endtime;
     public String sName;
     
-    public Score( int score, int endtime ) {
+    public Score( double score, int endtime ) {
         UserData d = UserData.getInstance();
         uScore = score;
         date = new Date();

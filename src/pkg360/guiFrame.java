@@ -4323,13 +4323,26 @@ public class guiFrame extends javax.swing.JFrame {
         String line = "";
         if( d.uName != null ) {
             if( d.uBoard_.bScore == null ) {
-                int tmp = 0;
+                double tmp = 0.0;
                 if( d.uHints != null ) {
                     for (int i = 0; i < d.uHints.length; i++) {
                         if( d.uHints[i].guess.compareTo(d.uHints[i].answer) == 0 ) {
-                            ++tmp;
+                            tmp += 10;
                         }
                     }
+                    if(d.uDifficulty == 3) {
+                        System.out.print("hard score" + tmp );
+                        double sz = d.uHints.length * 20;
+                        tmp *= ((sz-d.uBoard_.time) / sz);
+                        System.out.println(" to -> "+tmp);
+                    }
+                    else if(d.uDifficulty == 2) {
+                        System.out.print("medium score" + tmp );
+                        double sz = d.uHints.length * 30;
+                        tmp *= ((sz-d.uBoard_.time) / sz);
+                        System.out.println(" to -> "+tmp);
+                    }
+                    tmp = (double)(((int)(tmp*1000))/1000);
                     d.uBoard_.bScore = new Score(tmp, d.uBoard_.time);
                     
                     try {
